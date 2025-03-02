@@ -194,4 +194,14 @@ for epoch in range(1, EPOCHS + 1):
 
 df_statistics = pd.DataFrame(data=training_stats)
 df_statistics = df_statistics.set_index('epoch')
-df_statistics.to_csv('../data/training_statistics.csv')
+statistics_path = os.path.join(BASE_DIR, '../data/training_statistics.csv')
+df_statistics.to_csv(os.path.abspath(statistics_path))
+
+# save model
+model_save_path = os.path.join(BASE_DIR, '../models/fine_tuned_bert')
+model.save_pretrained(os.path.abspath(model_save_path))
+
+tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
+tokenizer.save_pretrained(model_save_path)
+
+print(f"Model and tokenizer saved to {model_save_path}")
