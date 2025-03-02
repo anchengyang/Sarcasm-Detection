@@ -183,3 +183,6 @@ for epoch in range(1, EPOCHS + 1):
         }
     )
 
+df_statistics = pd.DataFrame(data=training_stats)
+df_statistics = df_statistics.set_index('epoch')
+df_statistics.to_csv('../data/training_statistics.csv')
