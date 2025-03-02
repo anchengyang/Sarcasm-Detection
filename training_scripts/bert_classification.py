@@ -1,6 +1,7 @@
 import torch
 import pandas as pd
 from torch.utils.data import DataLoader
+import os
 
 from torch.utils.data import Dataset
 from transformers import AutoTokenizer
@@ -54,14 +55,22 @@ class TextDataset(Dataset):
             'targets': torch.as_tensor(target, dtype=torch.long),
             'text': text
         }
-    
-# load the data
-X_train = pd.read_csv('../data/train.csv')
-X_test = pd.read_csv('../data/test.csv')
+
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+
+# Construct absolute paths
+train_path = os.path.join(BASE_DIR, '../data/train.csv')
+test_path = os.path.join(BASE_DIR, '../data/test.csv')
+train_label_path = os.path.join(BASE_DIR, '../data/train_labels.csv')
+test_label_path = os.path.join(BASE_DIR, '../data/test_labels.csv')
+
+# Read the CSV files
+X_train = pd.read_csv(os.path.abspath(train_path))
+X_test = pd.read_csv(os.path.abspath(test_path))
 
 # load the labels
-y_train = pd.read_csv('../data/train_labels.csv')
-y_test = pd.read_csv('../data/test_labels.csv')
+y_train = pd.read_csv(os.path.abspath(train_label_path))
+y_test = pd.read_csv(os.path.abspath(test_label_path))
 
 # create the datasets and dataloaders
 
