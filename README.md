@@ -31,27 +31,33 @@ After training for 3 epochs, the BERT model achieves:
 - Test F1-Score: 92.07%
 
 ### RoBERTa Results
-Results will be available after training.
+After training for 3 epochs, the RoBERTa model achieves:
+- Test Accuracy: 93.68%
+- Test Precision: 93.23%
+- Test Recall: 93.27%
+- Test F1-Score: 93.25%
+
+## Model Comparison
+
+TODO
+
+The comparison helps understand the strengths and weaknesses of each model for the sarcasm detection task.
 
 ## Project Structure
 - `notebooks/`: Contains Jupyter notebooks for exploration and development
-  - `bert/`: BERT-specific notebooks
-    - `01_eda.ipynb`: Exploratory data analysis of the dataset
-    - `02_embeddings.ipynb`: Text embedding exploration with BERT
-    - `03_training.ipynb`: BERT model training and evaluation
-  - `roberta/`: RoBERTa-specific notebooks
-    - `01_eda.ipynb`: Exploratory data analysis for RoBERTa
-    - `02_embeddings.ipynb`: Text embedding exploration with RoBERTa
-    - `03_training.ipynb`: RoBERTa model training and evaluation
-  - `04_model_comparison.ipynb`: Comparative analysis of BERT and RoBERTa models
+  - `01_eda.ipynb`: Exploratory data analysis of the dataset (common for all models)
+  - `02_embeddings.ipynb`: Text embedding exploration with BERT
+  - `03_training.ipynb`: BERT model training and evaluation
 - `training_scripts/`: Contains production-ready training code
   - `bert_classification.py`: End-to-end script for BERT model training
   - `roberta_classification.py`: End-to-end script for RoBERTa model training
 - `data/`: Contains the dataset files and training statistics
-- `models/`: Contains saved model checkpoints
-  - `fine_tuned_bert/`: Saved BERT model and tokenizer
-  - `fine_tuned_roberta/`: Saved RoBERTa model and tokenizer
 - `slurm_script.sh`: Script for running the training job on a SLURM cluster
+- `results/`: Contains SLURM job outputs
+  - `bert_training_job_output.txt`: Training logs for BERT model
+  - `bert_training_job_error.txt`: Error logs for BERT model
+  - `roberta_training_job_output.txt`: Training logs for RoBERTa model
+  - `roberta_training_job_error.txt`: Error logs for RoBERTa model
 
 ## Setup and Installation
 
