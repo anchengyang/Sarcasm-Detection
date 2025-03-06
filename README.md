@@ -21,6 +21,24 @@ Link to the dataset: [News Headlines Dataset For Sarcasm Detection](https://www.
 - Trained for 3 epochs with AdamW optimizer (learning rate: 2e-5)
 - Batch size of 32
 
+### ALBERT Model
+- Fine-tuned ALBERT model (`albert-base-v2`)
+- Binary classification head
+- Trained for 3 epochs with AdamW optimizer (learning rate: 2e-5)
+- Batch size of 32
+
+### DistilBERT Model
+- Fine-tuned DistilBERT model (`distilbert-base-uncased`)
+- Binary classification head
+- Trained for 3 epochs with AdamW optimizer (learning rate: 2e-5)
+- Batch size of 32
+
+### Sentence-BERT (SBERT) Model
+- Fine-tuned Sentence-BERT model (`sentence-transformers/all-MiniLM-L6-v2`)
+- Custom classification head on top of sentence embeddings
+- Trained for 3 epochs with AdamW optimizer (learning rate: 2e-5)
+- Batch size of 32
+
 ## Results
 
 ### BERT Results
@@ -51,6 +69,9 @@ The comparison helps understand the strengths and weaknesses of each model for t
 - `training_scripts/`: Contains production-ready training code
   - `bert_classification.py`: End-to-end script for BERT model training
   - `roberta_classification.py`: End-to-end script for RoBERTa model training
+  - `albert_classification.py`: End-to-end script for ALBERT model training
+  - `distilbert_classification.py`: End-to-end script for DistilBERT model training
+  - `sbert_classification.py`: End-to-end script for Sentence-BERT model training
 - `data/`: Contains the dataset files and training statistics
 - `slurm_script.sh`: Script for running the training job on a SLURM cluster
 - `results/`: Contains SLURM job outputs
@@ -79,8 +100,17 @@ The comparison helps understand the strengths and weaknesses of each model for t
    
    # For RoBERTa model
    sbatch slurm_script.sh roberta
+   
+   # For ALBERT model
+   sbatch slurm_script.sh albert
+   
+   # For DistilBERT model
+   sbatch slurm_script.sh distilbert
+   
+   # For Sentence-BERT model
+   sbatch slurm_script.sh sbert
    ```
-3. Monitor output in `training_job_output.txt` and errors in `training_job_error.txt`
+3. Monitor output in the `results/` directory
 
 ## Usage
 Once trained, the models can be loaded and used for inference:
@@ -118,5 +148,83 @@ inputs = tokenizer(headline, return_tensors="pt", padding=True, truncation=True)
 # Get prediction
 outputs = model(**inputs)
 prediction = outputs.logits.argmax().item()
+print("Sarcastic" if prediction == 1 else "Not sarcastic")
+```
+
+### Using ALBERT Model
+```python
+from transformers import AlbertForSequenceClassification, AutoTokenizer
+
+# Load model and tokenizer
+model = AlbertForSequenceClassification.from_pretrained("path/to/saved/albert/model")
+tokenizer = AutoTokenizer.from_pretrained("path/to/saved/albert/model")
+
+# Prepare input
+headline = "Scientists discover new planet that looks exactly like Earth"
+inputs = tokenizer(headline, return_tensors="pt", padding=True, truncation=True)
+
+# Get prediction
+outputs = model(**inputs)
+prediction = outputs.logits.argmax().item()
+print("Sarcastic" if prediction == 1 else "Not sarcastic")
+```
+
+### Using DistilBERT Model
+```python
+from transformers import DistilBertForSequenceClassification, AutoTokenizer
+
+# Load model and tokenizer
+model = DistilBertForSequenceClassification.from_pretrained("path/to/saved/distilbert/model")
+tokenizer = AutoTokenizer.from_pretrained("path/to/saved/distilbert/model")
+
+# Prepare input
+headline = "Scientists discover new planet that looks exactly like Earth"
+inputs = tokenizer(headline, return_tensors="pt", padding=True, truncation=True)
+
+# Get prediction
+outputs = model(**inputs)
+prediction = outputs.logits.argmax().item()
+print("Sarcastic" if prediction == 1 else "Not sarcastic")
+```
+
+### Using Sentence-BERT Model
+```python
+import torch
+from transformers import AutoTokenizer, AutoModel
+from torch import nn
+
+# Define the same model architecture used during training
+class SBERTClassifier(nn.Module):
+    def __init__(self, model_name="sentence-transformers/all-MiniLM-L6-v2", num_labels=2):
+        super(SBERTClassifier, self).__init__()
+        self.sbert = AutoModel.from_pretrained(model_name)
+        self.dropout = nn.Dropout(0.1)
+        self.classifier = nn.Linear(384, num_labels)
+        
+    def forward(self, input_ids, attention_mask):
+        outputs = self.sbert(input_ids=input_ids, attention_mask=attention_mask)
+        token_embeddings = outputs.last_hidden_state
+        input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
+        sum_embeddings = torch.sum(token_embeddings * input_mask_expanded, 1)
+        sum_mask = torch.clamp(input_mask_expanded.sum(1), min=1e-9)
+        sentence_embeddings = sum_embeddings / sum_mask
+        pooled_output = self.dropout(sentence_embeddings)
+        logits = self.classifier(pooled_output)
+        return logits
+
+# Load model and tokenizer
+model = SBERTClassifier()
+model.load_state_dict(torch.load("path/to/saved/sbert/model/model_state_dict.pt"))
+model.eval()
+tokenizer = AutoTokenizer.from_pretrained("path/to/saved/sbert/model")
+
+# Prepare input
+headline = "Scientists discover new planet that looks exactly like Earth"
+inputs = tokenizer(headline, return_tensors="pt", padding=True, truncation=True)
+
+# Get prediction
+with torch.no_grad():
+    outputs = model(**inputs)
+prediction = outputs.argmax().item()
 print("Sarcastic" if prediction == 1 else "Not sarcastic")
 ```
