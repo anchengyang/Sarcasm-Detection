@@ -1,8 +1,8 @@
 #!/bin/sh
 #SBATCH --job-name=training-transformer
 #SBATCH --gpus=a100-80:1
-#SBATCH --output=results/${1:-bert}_training_job_output.txt
-#SBATCH --error=results/${1:-bert}_training_job_error.txt
+#SBATCH --output=results/training_job_output.txt
+#SBATCH --error=results/training_job_error.txt
 #SBATCH --time=3:00:00
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=e0726078@u.nus.edu
