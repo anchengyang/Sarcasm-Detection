@@ -55,11 +55,92 @@ After training for 3 epochs, the RoBERTa model achieves:
 - Test Recall: 93.27%
 - Test F1-Score: 93.25%
 
+### ALBERT Results
+After training for 3 epochs, the ALBERT model achieves:
+- Test Accuracy: 91.86%
+- Test Precision: 93.70%
+- Test Recall: 88.55%
+- Test F1-Score: 91.05%
+
+### DistilBERT Results
+After training for 3 epochs, the DistilBERT model achieves:
+- Test Accuracy: 92.35%
+- Test Precision: 90.67%
+- Test Recall: 93.25%
+- Test F1-Score: 91.94%
+
+### Sentence-BERT Results
+After training for 3 epochs, the Sentence-BERT model achieves:
+- Test Accuracy: 91.45%
+- Test Precision: 93.93%
+- Test Recall: 87.38%
+- Test F1-Score: 90.53%
+
 ## Model Comparison
 
-TODO
+A comparative analysis of all transformer models for sarcasm detection reveals interesting insights:
 
-The comparison helps understand the strengths and weaknesses of each model for the sarcasm detection task.
+### Performance Metrics Comparison
+
+| Model      | Accuracy | Precision | Recall  | F1-Score | Training Time |
+|------------|----------|-----------|---------|----------|---------------|
+| RoBERTa    | 93.68%   | 93.23%    | 93.27%  | 93.25%   | 456s          |
+| BERT       | 92.42%   | 90.17%    | 94.05%  | 92.07%   | 445s          |
+| DistilBERT | 92.35%   | 90.67%    | 93.25%  | 91.94%   | 295s          |
+| ALBERT     | 91.86%   | 93.70%    | 88.55%  | 91.05%   | 613s          |
+| SBERT      | 91.45%   | 93.93%    | 87.38%  | 90.53%   | 144s          |
+
+### Key Findings:
+
+1. **Best Overall Performance**: RoBERTa outperforms all other models across most metrics, achieving the highest accuracy (93.68%) and F1-score (93.25%). Its balanced precision and recall indicate robust performance across both sarcastic and non-sarcastic classes.
+
+2. **Precision vs. Recall Trade-offs**:
+   - BERT and DistilBERT favor recall over precision, meaning they're better at identifying sarcastic headlines but may produce more false positives.
+   - ALBERT and SBERT favor precision over recall, meaning they're more conservative in labeling headlines as sarcastic but may miss some sarcastic examples.
+
+3. **Efficiency Considerations**:
+   - Sentence-BERT is remarkably efficient, completing training in just 144 seconds (3x faster than DistilBERT and 4x faster than RoBERTa).
+   - DistilBERT offers an excellent balance of performance and efficiency, achieving 92.35% accuracy while training 1.5x faster than BERT.
+   - ALBERT, despite its parameter-sharing design, was surprisingly the slowest model to train in this task.
+
+4. **Practical Implications**:
+   - For production environments with limited resources, Sentence-BERT or DistilBERT provide the best performance-to-efficiency ratio.
+   - For applications where accuracy is paramount, RoBERTa is the clear choice.
+   - For applications where minimizing false positives is critical, ALBERT or SBERT would be preferred due to their higher precision.
+
+The comparison demonstrates that while larger models like RoBERTa generally perform better, smaller and more efficient models like DistilBERT and SBERT can achieve competitive results with significantly reduced computational requirements.
+
+### Performance vs. Efficiency Visualization
+
+```
+Accuracy (higher is better)
+RoBERTa    ████████████████████████████████████████████████ 93.68%
+BERT       ███████████████████████████████████████████▌    92.42%
+DistilBERT ███████████████████████████████████████████▎    92.35%
+ALBERT     ██████████████████████████████████████████▋     91.86%
+SBERT      ██████████████████████████████████████████      91.45%
+
+Training Time (lower is better)
+SBERT      ██████▌                                         144s
+DistilBERT █████████████▌                                  295s
+BERT       ████████████████████▎                           445s
+RoBERTa    ████████████████████▋                           456s
+ALBERT     ███████████████████████████▊                    613s
+```
+
+This visualization clearly shows the trade-off between model accuracy and training efficiency. While RoBERTa achieves the highest accuracy, SBERT offers dramatically faster training times with only a modest reduction in accuracy.
+
+### Model Size Comparison
+
+| Model      | Parameters | Size (MB) | Relative Size |
+|------------|------------|-----------|---------------|
+| RoBERTa    | 125M       | ~500 MB   | 100%          |
+| BERT       | 110M       | ~440 MB   | 88%           |
+| ALBERT     | 12M        | ~50 MB    | 10%           |
+| DistilBERT | 66M        | ~260 MB   | 52%           |
+| SBERT      | 22M        | ~90 MB    | 18%           |
+
+The parameter count and model size significantly impact deployment considerations. ALBERT and SBERT achieve impressive performance despite their much smaller footprints, making them excellent candidates for resource-constrained environments or mobile applications.
 
 ## Project Structure
 - `notebooks/`: Contains Jupyter notebooks for exploration and development
@@ -79,6 +160,12 @@ The comparison helps understand the strengths and weaknesses of each model for t
   - `bert_training_job_error.txt`: Error logs for BERT model
   - `roberta_training_job_output.txt`: Training logs for RoBERTa model
   - `roberta_training_job_error.txt`: Error logs for RoBERTa model
+  - `albert_training_job_output.txt`: Training logs for ALBERT model
+  - `albert_training_job_error.txt`: Error logs for ALBERT model
+  - `distilbert_training_job_output.txt`: Training logs for DistilBERT model
+  - `distilbert_training_job_error.txt`: Error logs for DistilBERT model
+  - `sbert_training_job_output.txt`: Training logs for Sentence-BERT model
+  - `sbert_training_job_error.txt`: Error logs for Sentence-BERT model
 
 ## Setup and Installation
 
