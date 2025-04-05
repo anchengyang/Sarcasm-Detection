@@ -142,6 +142,16 @@ This visualization clearly shows the trade-off between model accuracy and traini
 
 The parameter count and model size significantly impact deployment considerations. ALBERT and SBERT achieve impressive performance despite their much smaller footprints, making them excellent candidates for resource-constrained environments or mobile applications.
 
+### Comprehensive BERT Model Family Comparison
+
+| Model | Accuracy | Precision | Recall | F1-Score | Parameters | Size (MB) | Training Time | Training Parameters | Model Configuration | Performance Characteristics |
+|-------|----------|-----------|--------|----------|------------|-----------|---------------|--------------------|---------------------|---------------------------|
+| RoBERTa | 93.68% | 93.23% | 93.27% | 93.25% | 125M | ~500 MB | 456s | • Optimizer: AdamW<br>• Learning rate: 2e-5<br>• Epochs: 3<br>• Batch size: 32<br>• Loss function: CrossEntropyLoss | • Base model: `roberta-base`<br>• Tokenizer: RoBERTa tokenizer<br>• Max sequence length: 128<br>• Binary classification head | Highest overall performance, balanced precision and recall |
+| BERT | 92.42% | 90.17% | 94.05% | 92.07% | 110M | ~440 MB | 445s | • Optimizer: AdamW<br>• Learning rate: 2e-5<br>• Epochs: 3<br>• Batch size: 32<br>• Loss function: CrossEntropyLoss | • Base model: `bert-base-uncased`<br>• Tokenizer: BERT tokenizer<br>• Max sequence length: 128<br>• Binary classification head | Strong recall (94.05%), good for identifying sarcastic content |
+| DistilBERT | 92.35% | 90.67% | 93.25% | 91.94% | 66M | ~260 MB | 295s | • Optimizer: AdamW<br>• Learning rate: 2e-5<br>• Epochs: 3<br>• Batch size: 32<br>• Loss function: CrossEntropyLoss | • Base model: `distilbert-base-uncased`<br>• Tokenizer: DistilBERT tokenizer<br>• Max sequence length: 128<br>• Binary classification head | Excellent efficiency-to-performance ratio, 52% of BERT's size |
+| ALBERT | 91.86% | 93.70% | 88.55% | 91.05% | 12M | ~50 MB | 613s | • Optimizer: AdamW<br>• Learning rate: 2e-5<br>• Epochs: 3<br>• Batch size: 32<br>• Loss function: CrossEntropyLoss | • Base model: `albert-base-v2`<br>• Tokenizer: ALBERT tokenizer<br>• Max sequence length: 128<br>• Binary classification head | Highest precision (93.70%), smallest model size (10% of RoBERTa) |
+| SBERT | 91.45% | 93.93% | 87.38% | 90.53% | 22M | ~90 MB | 144s | • Optimizer: AdamW<br>• Learning rate: 2e-5<br>• Epochs: 3<br>• Batch size: 32<br>• Loss function: CrossEntropyLoss | • Base model: `sentence-transformers/all-MiniLM-L6-v2`<br>• Tokenizer: SBERT tokenizer<br>• Max sequence length: 128<br>• Custom pooling layer | Fastest training (144s), highest precision (93.93%), great for deployment |
+
 ## Project Structure
 - `notebooks/`: Contains Jupyter notebooks for exploration and development
   - `01_eda.ipynb`: Exploratory data analysis of the dataset (common for all models)
