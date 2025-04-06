@@ -1,4 +1,4 @@
-job is running on xgph2, started at Sun Apr  6 12:39:31 PM +08 2025
+job is running on xgph7, started at Sun Apr  6 03:33:58 PM +08 2025
 Running inference with model: albert
 
 --- Installing packages ---
@@ -10,47 +10,47 @@ Requirement already satisfied: transformers in /home/c/cy123/.local/lib/python3.
 Requirement already satisfied: scikit-learn in /home/c/cy123/.local/lib/python3.10/site-packages (1.6.1)
 Requirement already satisfied: torch-tb-profiler in /home/c/cy123/.local/lib/python3.10/site-packages (0.4.3)
 Requirement already satisfied: tensorboard in /home/c/cy123/.local/lib/python3.10/site-packages (2.19.0)
-Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.4.127)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.4.127)
+Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (2.21.5)
+Requirement already satisfied: triton==3.2.0 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (3.2.0)
+Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (10.3.5.147)
+Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.3.1.170)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.4.127)
+Requirement already satisfied: filelock in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (3.17.0)
 Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.4.5.8)
 Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.4.127)
-Requirement already satisfied: sympy==1.13.1 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (1.13.1)
-Requirement already satisfied: networkx in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (3.4.2)
-Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.4.127)
-Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.3.1.170)
-Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.4.127)
-Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (11.2.1.3)
-Requirement already satisfied: typing-extensions>=4.10.0 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (4.12.2)
-Requirement already satisfied: filelock in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (3.17.0)
-Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (from torch) (3.0.3)
-Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.4.127)
-Requirement already satisfied: triton==3.2.0 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (3.2.0)
 Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (11.6.1.9)
-Requirement already satisfied: fsspec in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (2025.2.0)
-Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (0.6.2)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.4.127)
+Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (11.2.1.3)
+Requirement already satisfied: networkx in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (3.4.2)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.4.127)
 Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (9.1.0.70)
-Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (2.21.5)
-Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (10.3.5.147)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (0.6.2)
+Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (from torch) (3.0.3)
+Requirement already satisfied: typing-extensions>=4.10.0 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (4.12.2)
+Requirement already satisfied: fsspec in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (2025.2.0)
+Requirement already satisfied: sympy==1.13.1 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (1.13.1)
 Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/c/cy123/.local/lib/python3.10/site-packages (from sympy==1.13.1->torch) (1.3.0)
+Requirement already satisfied: requests in /usr/lib/python3/dist-packages (from transformers) (2.25.1)
+Requirement already satisfied: safetensors>=0.4.1 in /home/c/cy123/.local/lib/python3.10/site-packages (from transformers) (0.5.3)
+Requirement already satisfied: tokenizers<0.22,>=0.21 in /home/c/cy123/.local/lib/python3.10/site-packages (from transformers) (0.21.0)
+Requirement already satisfied: numpy>=1.17 in /usr/lib/python3/dist-packages (from transformers) (1.21.5)
+Requirement already satisfied: huggingface-hub<1.0,>=0.26.0 in /home/c/cy123/.local/lib/python3.10/site-packages (from transformers) (0.29.1)
 Requirement already satisfied: packaging>=20.0 in /usr/lib/python3/dist-packages (from transformers) (21.3)
 Requirement already satisfied: regex!=2019.12.17 in /home/c/cy123/.local/lib/python3.10/site-packages (from transformers) (2024.11.6)
 Requirement already satisfied: tqdm>=4.27 in /home/c/cy123/.local/lib/python3.10/site-packages (from transformers) (4.67.1)
-Requirement already satisfied: safetensors>=0.4.1 in /home/c/cy123/.local/lib/python3.10/site-packages (from transformers) (0.5.3)
-Requirement already satisfied: numpy>=1.17 in /usr/lib/python3/dist-packages (from transformers) (1.21.5)
-Requirement already satisfied: tokenizers<0.22,>=0.21 in /home/c/cy123/.local/lib/python3.10/site-packages (from transformers) (0.21.0)
-Requirement already satisfied: huggingface-hub<1.0,>=0.26.0 in /home/c/cy123/.local/lib/python3.10/site-packages (from transformers) (0.29.1)
 Requirement already satisfied: pyyaml>=5.1 in /usr/lib/python3/dist-packages (from transformers) (5.4.1)
-Requirement already satisfied: requests in /usr/lib/python3/dist-packages (from transformers) (2.25.1)
-Requirement already satisfied: scipy>=1.6.0 in /usr/lib/python3/dist-packages (from scikit-learn) (1.8.0)
 Requirement already satisfied: threadpoolctl>=3.1.0 in /home/c/cy123/.local/lib/python3.10/site-packages (from scikit-learn) (3.5.0)
 Requirement already satisfied: joblib>=1.2.0 in /home/c/cy123/.local/lib/python3.10/site-packages (from scikit-learn) (1.4.2)
-Requirement already satisfied: six>1.9 in /usr/lib/python3/dist-packages (from tensorboard) (1.16.0)
-Requirement already satisfied: werkzeug>=1.0.1 in /home/c/cy123/.local/lib/python3.10/site-packages (from tensorboard) (3.1.3)
-Requirement already satisfied: markdown>=2.6.8 in /home/c/cy123/.local/lib/python3.10/site-packages (from tensorboard) (3.7)
-Requirement already satisfied: grpcio>=1.48.2 in /home/c/cy123/.local/lib/python3.10/site-packages (from tensorboard) (1.71.0)
-Requirement already satisfied: protobuf!=4.24.0,>=3.19.6 in /home/c/cy123/.local/lib/python3.10/site-packages (from tensorboard) (6.30.2)
+Requirement already satisfied: scipy>=1.6.0 in /usr/lib/python3/dist-packages (from scikit-learn) (1.8.0)
 Requirement already satisfied: tensorboard-data-server<0.8.0,>=0.7.0 in /home/c/cy123/.local/lib/python3.10/site-packages (from tensorboard) (0.7.2)
 Requirement already satisfied: absl-py>=0.4 in /home/c/cy123/.local/lib/python3.10/site-packages (from tensorboard) (2.2.2)
+Requirement already satisfied: markdown>=2.6.8 in /home/c/cy123/.local/lib/python3.10/site-packages (from tensorboard) (3.7)
+Requirement already satisfied: protobuf!=4.24.0,>=3.19.6 in /home/c/cy123/.local/lib/python3.10/site-packages (from tensorboard) (6.30.2)
+Requirement already satisfied: werkzeug>=1.0.1 in /home/c/cy123/.local/lib/python3.10/site-packages (from tensorboard) (3.1.3)
+Requirement already satisfied: six>1.9 in /usr/lib/python3/dist-packages (from tensorboard) (1.16.0)
 Requirement already satisfied: setuptools>=41.0.0 in /usr/lib/python3/dist-packages (from tensorboard) (59.6.0)
+Requirement already satisfied: grpcio>=1.48.2 in /home/c/cy123/.local/lib/python3.10/site-packages (from tensorboard) (1.71.0)
 Requirement already satisfied: MarkupSafe>=2.1.1 in /home/c/cy123/.local/lib/python3.10/site-packages (from werkzeug>=1.0.1->tensorboard) (3.0.2)
 
 --- Finished installing packages, starting model inference ---
@@ -68,19 +68,19 @@ Profiler Stats Summary:
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  Total GFLOPs  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       batch_processing         0.09%      19.146ms        88.44%       18.537s      69.170ms       0.000us         0.00%       18.218s      67.977ms          56 b           0 b      21.00 Kb     -23.60 Mb           268            --  
-                                        post_processing         0.11%      23.711ms        71.57%       15.001s      55.973ms       0.000us         0.00%       1.855ms       6.921us          56 b     -66.75 Kb    -133.50 Kb    -267.50 Kb           268            --  
-                                            aten::copy_         0.20%      42.506ms        71.51%       14.988s       2.796ms      39.074ms         0.21%      39.074ms       7.290us           0 b           0 b           0 b           0 b          5360            --  
-                                               aten::to         0.06%      11.984ms        71.39%       14.964s     262.829us       0.000us         0.00%       7.259ms       0.127us      66.80 Kb           0 b       1.31 Gb           0 b         56934            --  
-                                         aten::_to_copy         0.04%       8.560ms        71.34%       14.952s       9.298ms       0.000us         0.00%       7.259ms       4.514us      66.80 Kb           0 b       1.31 Gb           0 b          1608            --  
-                                        cudaMemcpyAsync        71.18%       14.920s        71.18%       14.920s       9.279ms       0.000us         0.00%       0.000us       0.000us           0 b           0 b           0 b           0 b          1608            --  
-                                        model_inference         5.47%        1.147s        16.63%        3.486s      13.007ms       0.000us         0.00%       18.214s      67.961ms           0 b          32 b     134.00 Kb   -2456.34 Gb           268            --  
-enumerate(DataLoader)#_SingleProcessDataLoaderIter._...        10.59%        2.219s        11.56%        2.422s       9.005ms       0.000us         0.00%       0.000us       0.000us      23.55 Mb     -35.29 Mb           0 b           0 b           269            --  
-                                           aten::linear         0.88%     184.574ms         4.91%        1.028s      51.162us       0.000us         0.00%       14.518s     722.273us           0 b           0 b     481.58 Gb           0 b         20100            --  
-                                            aten::addmm         2.16%     451.874ms         3.15%     659.888ms      32.830us       14.512s        79.70%       14.518s     722.273us           0 b           0 b     481.58 Gb     461.96 Gb         20100    261772.176  
+                                       batch_processing         0.09%      19.137ms        88.48%       18.472s      68.925ms       0.000us         0.00%       18.145s      67.706ms          56 b           0 b      21.00 Kb     -23.60 Mb           268            --  
+                                        post_processing         0.11%      23.498ms        71.54%       14.936s      55.730ms       0.000us         0.00%       1.874ms       6.992us          56 b     -66.75 Kb    -133.50 Kb    -267.50 Kb           268            --  
+                                            aten::copy_         0.20%      42.158ms        71.48%       14.923s       2.784ms      38.691ms         0.21%      38.691ms       7.218us           0 b           0 b           0 b           0 b          5360            --  
+                                               aten::to         0.06%      11.563ms        71.37%       14.899s     261.686us       0.000us         0.00%       7.186ms       0.126us      66.80 Kb           0 b       1.31 Gb           0 b         56934            --  
+                                         aten::_to_copy         0.04%       8.558ms        71.31%       14.887s       9.258ms       0.000us         0.00%       7.186ms       4.469us      66.80 Kb           0 b       1.31 Gb           0 b          1608            --  
+                                        cudaMemcpyAsync        71.16%       14.855s        71.16%       14.855s       9.238ms       0.000us         0.00%       0.000us       0.000us           0 b           0 b           0 b           0 b          1608            --  
+                                        model_inference         5.56%        1.160s        16.70%        3.485s      13.005ms       0.000us         0.00%       18.141s      67.690ms           0 b          48 b     134.00 Kb   -2456.47 Gb           268            --  
+enumerate(DataLoader)#_SingleProcessDataLoaderIter._...        10.54%        2.201s        11.52%        2.405s       8.939ms       0.000us         0.00%       0.000us       0.000us      23.55 Mb     -35.29 Mb           0 b           0 b           269            --  
+                                           aten::linear         0.87%     181.204ms         4.90%        1.023s      50.910us       0.000us         0.00%       14.447s     718.773us           0 b           0 b     481.58 Gb           0 b         20100            --  
+                                            aten::addmm         2.16%     450.475ms         3.14%     655.717ms      32.623us       14.442s        79.63%       14.447s     718.773us           0 b           0 b     481.58 Gb     461.96 Gb         20100    261772.176  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 20.960s
-Self CUDA time total: 18.209s
+Self CPU time total: 20.877s
+Self CUDA time total: 18.137s
 
 GPU peak memory: 366.56 MB
 GPU memory used: 321.97 MB
@@ -133,13 +133,13 @@ Memory summary:
 | Oversize GPU segments |       0    |       0    |       0    |       0    |
 |===========================================================================|
 
-Total inference time: 45.9372 seconds
-Average latency per batch: 0.00 ms
-Average latency per sample: 0.00 ms
-Throughput: 186.15 samples/second
-CPU Memory usage (profiler): 0.00 MB
-CUDA Time (profiler): 68.72 ms
+CUDA Time (profiler): 68.48 ms
 CUDA Memory usage (profiler): 321.97 MB
+Total inference time: 46.0050 seconds
+Average latency per batch: 68.48 ms
+Average latency per sample: 2.14 ms
+Throughput: 185.87 samples/second
+CPU Memory usage (profiler): 0.00 MB
 Accuracy: 0.9132
 F1 Score: 0.9115
 Full profiler trace saved to: /home/c/cy123/Sarcasm-Detection/profiler_results/albert/profile_batch_32/trace.json
@@ -154,19 +154,19 @@ Profiler Stats Summary:
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  Total GFLOPs  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       batch_processing         0.05%      10.096ms        88.36%       18.147s     135.426ms       0.000us         0.00%       17.992s     134.271ms         312 b           0 b     111.00 Kb     -23.44 Mb           134            --  
-                                            aten::copy_         0.10%      20.458ms        79.84%       16.398s       6.119ms      28.833ms         0.16%      28.833ms      10.758us           0 b           0 b           0 b           0 b          2680            --  
-                                               aten::to         0.04%       9.047ms        79.81%       16.391s     302.862us       0.000us         0.00%       5.126ms       0.095us      66.80 Kb           0 b       1.32 Gb           0 b         54120            --  
-                                         aten::_to_copy         0.02%       4.286ms        79.76%       16.382s      20.375ms       0.000us         0.00%       5.126ms       6.375us      66.80 Kb           0 b       1.32 Gb           0 b           804            --  
-                                        post_processing         0.06%      13.060ms        79.74%       16.378s     122.226ms       0.000us         0.00%     918.506us       6.855us         312 b     -66.50 Kb     -66.50 Kb    -133.50 Kb           134            --  
-                                        cudaMemcpyAsync        79.68%       16.365s        79.68%       16.365s      20.354ms       0.000us         0.00%       0.000us       0.000us           0 b           0 b           0 b           0 b           804            --  
-enumerate(DataLoader)#_SingleProcessDataLoaderIter._...        10.72%        2.201s        11.64%        2.391s      17.713ms       0.000us         0.00%       0.000us       0.000us      23.55 Mb     -35.28 Mb           0 b           0 b           135            --  
-                                        model_inference         2.75%     564.045ms         8.47%        1.740s      12.982ms       0.000us         0.00%       17.990s     134.252ms           0 b          24 b      67.00 Kb   -2460.06 Gb           134            --  
-                                           aten::linear         0.44%      89.751ms         2.52%     516.888ms      51.432us       0.000us         0.00%       14.385s       1.431ms           0 b           0 b     483.56 Gb           0 b         10050            --  
-                                            aten::addmm         1.09%     223.733ms         1.64%     336.519ms      33.484us       14.384s        79.98%       14.385s       1.431ms           0 b           0 b     483.56 Gb     473.74 Gb         10050    261772.176  
+                                       batch_processing         0.05%      10.079ms        88.33%       18.037s     134.603ms       0.000us         0.00%       17.879s     133.425ms         312 b           0 b     111.00 Kb     -23.44 Mb           134            --  
+                                            aten::copy_         0.10%      20.422ms        79.77%       16.289s       6.078ms      28.606ms         0.16%      28.606ms      10.674us           0 b           0 b           0 b           0 b          2680            --  
+                                               aten::to         0.04%       8.856ms        79.73%       16.281s     300.839us       0.000us         0.00%       5.091ms       0.094us      66.80 Kb           0 b       1.32 Gb           0 b         54120            --  
+                                         aten::_to_copy         0.02%       4.347ms        79.69%       16.273s      20.240ms       0.000us         0.00%       5.091ms       6.332us      66.80 Kb           0 b       1.32 Gb           0 b           804            --  
+                                        post_processing         0.06%      12.879ms        79.68%       16.269s     121.414ms       0.000us         0.00%     924.560us       6.900us         312 b     -66.50 Kb     -66.50 Kb    -133.50 Kb           134            --  
+                                        cudaMemcpyAsync        79.61%       16.256s        79.61%       16.256s      20.219ms       0.000us         0.00%       0.000us       0.000us           0 b           0 b           0 b           0 b           804            --  
+enumerate(DataLoader)#_SingleProcessDataLoaderIter._...        10.73%        2.191s        11.67%        2.382s      17.647ms       0.000us         0.00%       0.000us       0.000us      23.55 Mb     -35.28 Mb           0 b           0 b           135            --  
+                                        model_inference         2.80%     572.380ms         8.51%        1.738s      12.971ms       0.000us         0.00%       17.876s     133.406ms           0 b           8 b      67.00 Kb   -2459.99 Gb           134            --  
+                                           aten::linear         0.44%      89.034ms         2.52%     515.058ms      51.250us       0.000us         0.00%       14.277s       1.421ms           0 b           0 b     483.56 Gb           0 b         10050            --  
+                                            aten::addmm         1.09%     222.006ms         1.64%     335.722ms      33.405us       14.274s        79.87%       14.277s       1.421ms           0 b           0 b     483.56 Gb     473.74 Gb         10050    261772.176  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 20.539s
-Self CUDA time total: 17.985s
+Self CPU time total: 20.419s
+Self CUDA time total: 17.871s
 
 GPU peak memory: 679.22 MB
 GPU memory used: 625.80 MB
@@ -219,13 +219,13 @@ Memory summary:
 | Oversize GPU segments |       0    |       0    |       0    |       0    |
 |===========================================================================|
 
-Total inference time: 41.0285 seconds
-Average latency per batch: 0.00 ms
-Average latency per sample: 0.00 ms
-Throughput: 208.42 samples/second
-CPU Memory usage (profiler): 0.00 MB
-CUDA Time (profiler): 134.94 ms
+CUDA Time (profiler): 134.12 ms
 CUDA Memory usage (profiler): 625.80 MB
+Total inference time: 40.6345 seconds
+Average latency per batch: 134.12 ms
+Average latency per sample: 2.10 ms
+Throughput: 210.44 samples/second
+CPU Memory usage (profiler): 0.00 MB
 Accuracy: 0.9132
 F1 Score: 0.9115
 Full profiler trace saved to: /home/c/cy123/Sarcasm-Detection/profiler_results/albert/profile_batch_64/trace.json
@@ -240,19 +240,19 @@ Profiler Stats Summary:
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  Total GFLOPs  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       batch_processing         0.03%       6.020ms        87.11%       17.985s     268.437ms       0.000us         0.00%       17.884s     266.928ms         824 b           0 b     292.00 Kb     -23.27 Mb            67            --  
-                                               aten::to         0.04%       9.131ms        82.44%       17.019s     322.866us       0.000us         0.00%       4.224ms       0.080us      66.80 Kb           0 b       1.32 Gb           0 b         52713            --  
-                                            aten::copy_         0.09%      17.896ms        82.43%       17.018s      12.700ms      25.607ms         0.14%      25.607ms      19.110us           0 b           0 b           0 b           0 b          1340            --  
-                                         aten::_to_copy         0.01%       2.691ms        82.39%       17.010s      42.314ms       0.000us         0.00%       4.224ms      10.509us      66.80 Kb           0 b       1.32 Gb           0 b           402            --  
-                                        post_processing         0.05%       9.832ms        82.35%       17.002s     253.765ms       0.000us         0.00%     472.096us       7.046us         824 b     -66.00 Kb     -66.00 Kb    -133.00 Kb            67            --  
-                                        cudaMemcpyAsync        82.31%       16.993s        82.31%       16.993s      42.270ms       0.000us         0.00%       0.000us       0.000us           0 b           0 b           0 b           0 b           402            --  
-enumerate(DataLoader)#_SingleProcessDataLoaderIter._...        11.66%        2.407s        12.88%        2.660s      39.118ms       0.000us         0.00%       0.000us       0.000us      23.55 Mb     -35.25 Mb           0 b           0 b            68            --  
-                                        model_inference         1.49%     306.892ms         4.63%     956.035ms      14.269ms       0.000us         0.00%       17.882s     266.901ms           0 b          -8 b      67.00 Kb   -2446.53 Gb            67            --  
-                                           aten::linear         0.25%      51.542ms         1.39%     286.502ms      57.015us       0.000us         0.00%       14.343s       2.854ms           0 b           0 b     481.99 Gb           0 b          5025            --  
-                                            aten::addmm         0.59%     122.413ms         0.89%     183.378ms      36.493us       14.340s        80.20%       14.343s       2.854ms           0 b           0 b     481.99 Gb     477.08 Gb          5025    261772.176  
+                                       batch_processing         0.03%       5.681ms        87.03%       17.886s     266.954ms       0.000us         0.00%       17.779s     265.363ms         824 b           0 b     292.00 Kb     -23.27 Mb            67            --  
+                                            aten::copy_         0.10%      21.022ms        82.28%       16.910s      12.619ms      25.732ms         0.14%      25.732ms      19.203us           0 b           0 b           0 b           0 b          1340            --  
+                                               aten::to         0.04%       7.729ms        82.28%       16.909s     320.779us       0.000us         0.00%       4.227ms       0.080us      66.80 Kb           0 b       1.32 Gb           0 b         52713            --  
+                                         aten::_to_copy         0.01%       2.627ms        82.24%       16.901s      42.044ms       0.000us         0.00%       4.227ms      10.515us      66.80 Kb           0 b       1.32 Gb           0 b           402            --  
+                                        post_processing         0.04%       8.403ms        82.18%       16.889s     252.072ms       0.000us         0.00%     475.232us       7.093us         824 b     -66.00 Kb     -66.00 Kb    -133.00 Kb            67            --  
+                                        cudaMemcpyAsync        82.15%       16.881s        82.15%       16.881s      41.993ms       0.000us         0.00%       0.000us       0.000us           0 b           0 b           0 b           0 b           402            --  
+enumerate(DataLoader)#_SingleProcessDataLoaderIter._...        11.71%        2.406s        12.96%        2.664s      39.181ms       0.000us         0.00%       0.000us       0.000us      23.55 Mb     -35.25 Mb           0 b           0 b            68            --  
+                                        model_inference         1.52%     312.833ms         4.71%     967.983ms      14.448ms       0.000us         0.00%       17.778s     265.336ms           0 b           0 b      67.00 Kb   -2446.40 Gb            67            --  
+                                           aten::linear         0.26%      52.453ms         1.44%     296.731ms      59.051us       0.000us         0.00%       14.241s       2.834ms           0 b           0 b     481.99 Gb           0 b          5025            --  
+                                            aten::addmm         0.60%     122.309ms         0.94%     192.282ms      38.265us       14.238s        80.09%       14.241s       2.834ms           0 b           0 b     481.99 Gb     477.08 Gb          5025    261772.176  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 20.646s
-Self CUDA time total: 17.881s
+Self CPU time total: 20.551s
+Self CUDA time total: 17.778s
 
 GPU peak memory: 1298.04 MB
 GPU memory used: 1244.53 MB
@@ -305,13 +305,13 @@ Memory summary:
 | Oversize GPU segments |       0    |       0    |       0    |       0    |
 |===========================================================================|
 
-Total inference time: 39.2004 seconds
-Average latency per batch: 0.00 ms
-Average latency per sample: 0.00 ms
-Throughput: 218.14 samples/second
-CPU Memory usage (profiler): 0.00 MB
-CUDA Time (profiler): 267.66 ms
+CUDA Time (profiler): 266.16 ms
 CUDA Memory usage (profiler): 1244.53 MB
+Total inference time: 39.3993 seconds
+Average latency per batch: 266.16 ms
+Average latency per sample: 2.08 ms
+Throughput: 217.03 samples/second
+CPU Memory usage (profiler): 0.00 MB
 Accuracy: 0.9132
 F1 Score: 0.9115
 Full profiler trace saved to: /home/c/cy123/Sarcasm-Detection/profiler_results/albert/profile_batch_128/trace.json
@@ -326,19 +326,19 @@ Profiler Stats Summary:
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  Total GFLOPs  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                       batch_processing         0.01%       3.098ms        86.71%       17.960s     528.233ms       0.000us         0.00%       17.913s     526.847ms         824 b           0 b     292.00 Kb     -23.27 Mb            34            --  
-                                               aten::to         0.05%      10.884ms        84.17%       17.434s     335.132us       0.000us         0.00%       4.228ms       0.081us      66.80 Kb           0 b       1.32 Gb           0 b         52020            --  
-                                            aten::copy_         0.03%       5.511ms        84.13%       17.426s      25.627ms      26.340ms         0.15%      26.340ms      38.736us           0 b           0 b           0 b           0 b           680            --  
-                                         aten::_to_copy         0.01%       1.291ms        84.12%       17.423s      85.405ms       0.000us         0.00%       4.228ms      20.725us      66.80 Kb           0 b       1.32 Gb           0 b           204            --  
-                                        cudaMemcpyAsync        84.09%       17.416s        84.09%       17.416s      85.375ms       0.000us         0.00%       0.000us       0.000us           0 b           0 b           0 b           0 b           204            --  
-                                        post_processing         0.03%       6.098ms        84.07%       17.413s     512.133ms       0.000us         0.00%     249.727us       7.345us         824 b     -66.00 Kb     -66.00 Kb    -133.00 Kb            34            --  
-enumerate(DataLoader)#_SingleProcessDataLoaderIter._...        11.92%        2.469s        13.29%        2.753s      78.643ms       0.000us         0.00%       0.000us       0.000us      23.55 Mb     -35.24 Mb           0 b           0 b            35            --  
-                                        model_inference         0.79%     164.257ms         2.52%     522.506ms      15.368ms       0.000us         0.00%       17.911s     526.806ms           0 b           8 b      67.00 Kb   -2445.61 Gb            34            --  
-                                           aten::linear         0.15%      30.962ms         0.73%     151.333ms      59.346us       0.000us         0.00%       14.391s       5.643ms           0 b           0 b     481.99 Gb           0 b          2550            --  
-                                            aten::empty         0.56%     116.938ms         0.57%     117.471ms       2.830us       0.000us         0.00%       0.000us       0.000us      35.25 Mb      35.25 Mb     176.92 Gb     176.92 Gb         41515            --  
+                                       batch_processing         0.02%       3.450ms        87.20%       17.846s     524.884ms       0.000us         0.00%       17.794s     523.366ms         824 b           0 b     292.00 Kb     -23.27 Mb            34            --  
+                                               aten::to         0.06%      13.300ms        84.68%       17.330s     333.136us       0.000us         0.00%       4.235ms       0.081us      66.80 Kb           0 b       1.32 Gb           0 b         52020            --  
+                                            aten::copy_         0.03%       5.474ms        84.63%       17.320s      25.470ms      26.420ms         0.15%      26.420ms      38.853us           0 b           0 b           0 b           0 b           680            --  
+                                         aten::_to_copy         0.01%       1.348ms        84.61%       17.316s      84.885ms       0.000us         0.00%       4.235ms      20.758us      66.80 Kb           0 b       1.32 Gb           0 b           204            --  
+                                        cudaMemcpyAsync        84.58%       17.310s        84.58%       17.310s      84.853ms       0.000us         0.00%       0.000us       0.000us           0 b           0 b           0 b           0 b           204            --  
+                                        post_processing         0.02%       4.785ms        84.54%       17.302s     508.882ms       0.000us         0.00%     251.200us       7.388us         824 b     -66.00 Kb     -66.00 Kb    -133.00 Kb            34            --  
+enumerate(DataLoader)#_SingleProcessDataLoaderIter._...        11.68%        2.390s        12.80%        2.619s      74.818ms       0.000us         0.00%       0.000us       0.000us      23.55 Mb     -35.24 Mb           0 b           0 b            35            --  
+                                        model_inference         0.77%     156.734ms         2.51%     512.996ms      15.088ms       0.000us         0.00%       17.793s     523.324ms           0 b           8 b      67.00 Kb   -2445.35 Gb            34            --  
+                                           aten::linear         0.12%      25.556ms         0.74%     150.611ms      59.063us       0.000us         0.00%       14.276s       5.598ms           0 b           0 b     481.99 Gb           0 b          2550            --  
+                                            aten::empty         0.49%     100.168ms         0.49%     100.729ms       2.426us       0.000us         0.00%       0.000us       0.000us      35.25 Mb      35.25 Mb     176.92 Gb     176.92 Gb         41515            --  
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 20.713s
-Self CUDA time total: 17.901s
+Self CPU time total: 20.465s
+Self CUDA time total: 17.782s
 
 GPU peak memory: 2541.25 MB
 GPU memory used: 2487.56 MB
@@ -391,13 +391,13 @@ Memory summary:
 | Oversize GPU segments |       0    |       0    |       0    |       0    |
 |===========================================================================|
 
-Total inference time: 36.2136 seconds
-Average latency per batch: 0.00 ms
-Average latency per sample: 0.00 ms
-Throughput: 236.13 samples/second
-CPU Memory usage (profiler): 0.00 MB
-CUDA Time (profiler): 527.05 ms
+CUDA Time (profiler): 523.58 ms
 CUDA Memory usage (profiler): 2487.56 MB
+Total inference time: 33.5571 seconds
+Average latency per batch: 523.58 ms
+Average latency per sample: 2.05 ms
+Throughput: 254.82 samples/second
+CPU Memory usage (profiler): 0.00 MB
 Accuracy: 0.9132
 F1 Score: 0.9115
 Full profiler trace saved to: /home/c/cy123/Sarcasm-Detection/profiler_results/albert/profile_batch_256/trace.json
@@ -410,19 +410,19 @@ Model size: 46.75 MB
 
 Best throughput configuration:
   Batch size: 256.0
-  Throughput: 236.13 samples/second
-  Latency per sample: 0.00 ms
+  Throughput: 254.82 samples/second
+  Latency per sample: 2.05 ms
   CPU Memory usage: 0.00 MB
   GPU Memory usage: 2487.56 MB
 
 Best latency configuration:
-  Batch size: 32.0
-  Latency per sample: 0.00 ms
-  Throughput: 186.15 samples/second
+  Batch size: 256.0
+  Latency per sample: 2.05 ms
+  Throughput: 254.82 samples/second
   CPU Memory usage: 0.00 MB
-  GPU Memory usage: 321.97 MB
+  GPU Memory usage: 2487.56 MB
 -e 
-Job completed at Sun Apr  6 12:47:37 PM +08 2025
+Job completed at Sun Apr  6 03:42:06 PM +08 2025
 
--e total execution time: 484 seconds
+-e total execution time: 487 seconds
 

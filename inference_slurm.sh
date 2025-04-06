@@ -1,5 +1,5 @@
 #!/bin/sh
-#SBATCH --job-name=running-inference
+#SBATCH --job-name=running-inference-bert
 #SBATCH --gpus=a100-80:1
 #SBATCH --time=1:00:00
 #SBATCH --mail-type=BEGIN,END,FAIL
