@@ -265,16 +265,17 @@ def measure_inference_performance(model_path, test_data_path, test_labels_path, 
         accuracy = accuracy_score(all_labels, all_preds)
         precision, recall, f1, _ = precision_recall_fscore_support(all_labels, all_preds, average='binary')
         
+        if device == 'cuda':
+            print(f"CUDA Time (profiler): {profiler_stats['cuda_time']*1000:.2f} ms")
+            print(f"CUDA Memory usage (profiler): {profiler_stats['cuda_memory_usage']:.2f} MB")
+            avg_latency_per_batch = profiler_stats['cuda_time']  # Already converted to seconds
+            avg_latency_per_sample = avg_latency_per_batch / batch_size
+        
         print(f"Total inference time: {total_inference_time:.4f} seconds")
         print(f"Average latency per batch: {avg_latency_per_batch*1000:.2f} ms")
         print(f"Average latency per sample: {avg_latency_per_sample*1000:.2f} ms")
         print(f"Throughput: {throughput:.2f} samples/second")
         print(f"CPU Memory usage (profiler): {profiler_stats['cpu_memory_usage']:.2f} MB")
-        
-        if device == 'cuda':
-            print(f"CUDA Time (profiler): {profiler_stats['cuda_time']*1000:.2f} ms")
-            print(f"CUDA Memory usage (profiler): {profiler_stats['cuda_memory_usage']:.2f} MB")
-        
         print(f"Accuracy: {accuracy:.4f}")
         print(f"F1 Score: {f1:.4f}")
         
