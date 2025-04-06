@@ -1,0 +1,2 @@
+slurmstepd-xgph7: error: Detected 1 oom-kill event(s) in StepId=574865.0. Some of your processes may have been killed by the cgroup out-of-memory handler.
+srun: error: xgph7: task 0: Out Of Memory

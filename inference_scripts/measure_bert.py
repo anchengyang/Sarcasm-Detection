@@ -196,8 +196,8 @@ def measure_inference_performance(model_path, test_data_path, test_labels_path, 
                 profiler_stats['cpu_time'] = event.cpu_time * 1e-6  # Convert microseconds to seconds
                 profiler_stats['cpu_memory_usage'] = event.self_cpu_memory_usage / (1024 * 1024)  # Convert to MB
                 if device == 'cuda':
-                    profiler_stats['cuda_time'] = event.cuda_time * 1e-6  # Convert microseconds to seconds
-                    profiler_stats['cuda_memory_usage'] = event.self_cuda_memory_usage / (1024 * 1024)  # Convert to MB
+                    profiler_stats['cuda_time'] = event.device_time * 1e-6  # Convert microseconds to seconds
+                    profiler_stats['cuda_memory_usage'] = (torch.cuda.max_memory_allocated() - initial_gpu_memory) / (1024 * 1024)  # Convert to MB
         
         # Get accurate GPU memory usage from PyTorch
         if device == 'cuda':
@@ -208,6 +208,12 @@ def measure_inference_performance(model_path, test_data_path, test_labels_path, 
             print(f"GPU memory used: {gpu_memory_used:.2f} MB")
         else:
             gpu_memory_used = 0
+
+        memory_report = torch.cuda.memory_summary()
+        print("Memory summary:")
+        print(memory_report)
+
+
         
         # Calculate metrics
         total_inference_time = end_time - start_time
@@ -288,8 +294,8 @@ if __name__ == "__main__":
     parent_dir = os.path.abspath(os.path.join(BASE_DIR, f'../profiler_results/{model}'))
     
     # Test with different batch sizes to measure performance characteristics
-    # batch_sizes = [1, 8, 16, 32, 64, 128, 256]
-    batch_sizes = [64]
+    batch_sizes = [32, 64, 128, 256]
+    
     
     results = measure_inference_performance(
         model_path=model_path,

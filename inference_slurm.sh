@@ -1,7 +1,7 @@
 #!/bin/sh
 #SBATCH --job-name=running-inference
 #SBATCH --gpus=a100-80:1
-#SBATCH --time=3:00:00
+#SBATCH --time=1:00:00
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=e0725272@u.nus.edu
 
@@ -25,19 +25,19 @@ echo "\n--- Finished installing packages, starting model inference ---\n"
 start_time=$(date +%s)
 
 if [ "$MODEL" = "roberta" ]; then
-    echo "Running RoBERTa model training..."
+    echo "Running RoBERTa model inference..."
     srun python inference_scripts/measure_bert.py --model roberta
 elif [ "$MODEL" = "albert" ]; then
-    echo "Running ALBERT model training..."
+    echo "Running ALBERT model inference..."
     srun python inference_scripts/measure_bert.py --model albert
 elif [ "$MODEL" = "distilbert" ]; then
-    echo "Running DistilBERT model training..."
+    echo "Running DistilBERT model inference..."
     srun python inference_scripts/measure_bert.py --model distilbert
 elif [ "$MODEL" = "sbert" ]; then
-    echo "Running Sentence-BERT model training..."
+    echo "Running Sentence-BERT model inference..."
     srun python inference_scripts/measure_bert.py --model sbert
 else
-    echo "Running BERT model training..."
+    echo "Running BERT model inference..."
     srun python inference_scripts/measure_bert.py --model bert
 fi
 
