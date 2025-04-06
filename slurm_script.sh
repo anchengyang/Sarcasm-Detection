@@ -5,7 +5,7 @@
 #SBATCH --error=results/training_job_error.txt
 #SBATCH --time=3:00:00
 #SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --mail-user=e0726078@u.nus.edu
+#SBATCH --mail-user=e0725272@u.nus.edu
 
 # Default model is BERT if not specified
 MODEL=${1:-bert}

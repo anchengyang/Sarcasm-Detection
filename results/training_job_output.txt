@@ -1,0 +1,153 @@
+job is running on xgph1, started at Sun Apr  6 12:56:54 AM +08 2025
+Training model: distilbert
+
+--- Installing packages ---
+
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: torch in /home/c/cy123/.local/lib/python3.10/site-packages (2.6.0)
+Requirement already satisfied: pandas in /usr/lib/python3/dist-packages (1.3.5)
+Requirement already satisfied: transformers in /home/c/cy123/.local/lib/python3.10/site-packages (4.49.0)
+Requirement already satisfied: scikit-learn in /home/c/cy123/.local/lib/python3.10/site-packages (1.6.1)
+Requirement already satisfied: typing-extensions>=4.10.0 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (4.12.2)
+Requirement already satisfied: fsspec in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (2025.2.0)
+Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (11.2.1.3)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.4.127)
+Requirement already satisfied: sympy==1.13.1 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (1.13.1)
+Requirement already satisfied: networkx in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (3.4.2)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.4.127)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.4.127)
+Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (10.3.5.147)
+Requirement already satisfied: triton==3.2.0 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (3.2.0)
+Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (9.1.0.70)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (0.6.2)
+Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (11.6.1.9)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.4.127)
+Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.4.127)
+Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.4.5.8)
+Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (2.21.5)
+Requirement already satisfied: filelock in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (3.17.0)
+Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (from torch) (3.0.3)
+Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in /home/c/cy123/.local/lib/python3.10/site-packages (from torch) (12.3.1.170)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/c/cy123/.local/lib/python3.10/site-packages (from sympy==1.13.1->torch) (1.3.0)
+Requirement already satisfied: tokenizers<0.22,>=0.21 in /home/c/cy123/.local/lib/python3.10/site-packages (from transformers) (0.21.0)
+Requirement already satisfied: numpy>=1.17 in /usr/lib/python3/dist-packages (from transformers) (1.21.5)
+Requirement already satisfied: regex!=2019.12.17 in /home/c/cy123/.local/lib/python3.10/site-packages (from transformers) (2024.11.6)
+Requirement already satisfied: requests in /usr/lib/python3/dist-packages (from transformers) (2.25.1)
+Requirement already satisfied: safetensors>=0.4.1 in /home/c/cy123/.local/lib/python3.10/site-packages (from transformers) (0.5.3)
+Requirement already satisfied: huggingface-hub<1.0,>=0.26.0 in /home/c/cy123/.local/lib/python3.10/site-packages (from transformers) (0.29.1)
+Requirement already satisfied: pyyaml>=5.1 in /usr/lib/python3/dist-packages (from transformers) (5.4.1)
+Requirement already satisfied: tqdm>=4.27 in /home/c/cy123/.local/lib/python3.10/site-packages (from transformers) (4.67.1)
+Requirement already satisfied: packaging>=20.0 in /usr/lib/python3/dist-packages (from transformers) (21.3)
+Requirement already satisfied: scipy>=1.6.0 in /usr/lib/python3/dist-packages (from scikit-learn) (1.8.0)
+Requirement already satisfied: joblib>=1.2.0 in /home/c/cy123/.local/lib/python3.10/site-packages (from scikit-learn) (1.4.2)
+Requirement already satisfied: threadpoolctl>=3.1.0 in /home/c/cy123/.local/lib/python3.10/site-packages (from scikit-learn) (3.5.0)
+
+--- Finished installing packages, starting model training ---
+
+Running DistilBERT model training...
+device: cuda
+
+================ Epoch 1 / 3 ================
+  Batch    40  of    624.    Elapsed: 0:00:05.
+  Batch    80  of    624.    Elapsed: 0:00:09.
+  Batch   120  of    624.    Elapsed: 0:00:13.
+  Batch   160  of    624.    Elapsed: 0:00:17.
+  Batch   200  of    624.    Elapsed: 0:00:21.
+  Batch   240  of    624.    Elapsed: 0:00:25.
+  Batch   280  of    624.    Elapsed: 0:00:29.
+  Batch   320  of    624.    Elapsed: 0:00:33.
+  Batch   360  of    624.    Elapsed: 0:00:37.
+  Batch   400  of    624.    Elapsed: 0:00:41.
+  Batch   440  of    624.    Elapsed: 0:00:45.
+  Batch   480  of    624.    Elapsed: 0:00:49.
+  Batch   520  of    624.    Elapsed: 0:00:53.
+  Batch   560  of    624.    Elapsed: 0:00:57.
+  Batch   600  of    624.    Elapsed: 0:01:01.
+
+---TRAIN METRICS---
+Loss: 0.2994
+Accuracy: 0.9261
+Precision: 0.9799
+Recall: 0.8633
+F1-Score: 0.9179
+
+Running validation ...
+
+---TEST METRICS---
+Loss: 0.2842
+Accuracy: 0.8829
+Precision: 0.9562
+Recall: 0.7857
+F1-Score: 0.8626
+
+================ Epoch 2 / 3 ================
+  Batch    40  of    624.    Elapsed: 0:00:04.
+  Batch    80  of    624.    Elapsed: 0:00:08.
+  Batch   120  of    624.    Elapsed: 0:00:12.
+  Batch   160  of    624.    Elapsed: 0:00:16.
+  Batch   200  of    624.    Elapsed: 0:00:20.
+  Batch   240  of    624.    Elapsed: 0:00:24.
+  Batch   280  of    624.    Elapsed: 0:00:28.
+  Batch   320  of    624.    Elapsed: 0:00:32.
+  Batch   360  of    624.    Elapsed: 0:00:36.
+  Batch   400  of    624.    Elapsed: 0:00:40.
+  Batch   440  of    624.    Elapsed: 0:00:44.
+  Batch   480  of    624.    Elapsed: 0:00:49.
+  Batch   520  of    624.    Elapsed: 0:00:53.
+  Batch   560  of    624.    Elapsed: 0:00:57.
+  Batch   600  of    624.    Elapsed: 0:01:01.
+
+---TRAIN METRICS---
+Loss: 0.1454
+Accuracy: 0.9885
+Precision: 0.9881
+Recall: 0.9879
+F1-Score: 0.9880
+
+Running validation ...
+
+---TEST METRICS---
+Loss: 0.2020
+Accuracy: 0.9202
+Precision: 0.9219
+Recall: 0.9062
+F1-Score: 0.9140
+
+================ Epoch 3 / 3 ================
+  Batch    40  of    624.    Elapsed: 0:00:04.
+  Batch    80  of    624.    Elapsed: 0:00:08.
+  Batch   120  of    624.    Elapsed: 0:00:12.
+  Batch   160  of    624.    Elapsed: 0:00:16.
+  Batch   200  of    624.    Elapsed: 0:00:20.
+  Batch   240  of    624.    Elapsed: 0:00:24.
+  Batch   280  of    624.    Elapsed: 0:00:28.
+  Batch   320  of    624.    Elapsed: 0:00:32.
+  Batch   360  of    624.    Elapsed: 0:00:36.
+  Batch   400  of    624.    Elapsed: 0:00:40.
+  Batch   440  of    624.    Elapsed: 0:00:44.
+  Batch   480  of    624.    Elapsed: 0:00:48.
+  Batch   520  of    624.    Elapsed: 0:00:53.
+  Batch   560  of    624.    Elapsed: 0:00:57.
+  Batch   600  of    624.    Elapsed: 0:01:01.
+
+---TRAIN METRICS---
+Loss: 0.0774
+Accuracy: 0.9934
+Precision: 0.9887
+Recall: 0.9976
+F1-Score: 0.9931
+
+Running validation ...
+
+---TEST METRICS---
+Loss: 0.3492
+Accuracy: 0.9170
+Precision: 0.8856
+Recall: 0.9445
+F1-Score: 0.9141
+Model and tokenizer saved to /home/c/cy123/Sarcasm-Detection/training_scripts/../models/fine_tuned_distilbert
+-e 
+Job completed at Sun Apr  6 01:01:58 AM +08 2025
+
+-e total execution time: 303 seconds
+

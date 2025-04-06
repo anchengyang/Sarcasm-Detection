@@ -3,7 +3,6 @@ import torch
 import pandas as pd
 import time
 import os
-import psutil
 import gc
 from torch.utils.data import DataLoader
 from transformers import AutoTokenizer, AutoModelForSequenceClassification

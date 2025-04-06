@@ -1,0 +1,9 @@
+/home/c/cy123/Sarcasm-Detection/inference_scripts/measure_bert.py:199: FutureWarning: `cuda_time` is deprecated, please use `device_time` instead.
+  profiler_stats['cuda_time'] = event.cuda_time * 1e-6  # Convert microseconds to seconds
+Traceback (most recent call last):
+  File "/home/c/cy123/Sarcasm-Detection/inference_scripts/measure_bert.py", line 294, in <module>
+    results = measure_inference_performance(
+  File "/home/c/cy123/Sarcasm-Detection/inference_scripts/measure_bert.py", line 200, in measure_inference_performance
+    profiler_stats['cuda_memory_usage'] = event.self_cuda_memory_usage / (1024 * 1024)  # Convert to MB
+AttributeError: 'FunctionEventAvg' object has no attribute 'self_cuda_memory_usage'. Did you mean: 'self_cpu_memory_usage'?
+srun: error: xgph1: task 0: Exited with exit code 1
