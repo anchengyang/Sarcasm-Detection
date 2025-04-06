@@ -35,7 +35,7 @@ elif [ "$MODEL" = "distilbert" ]; then
     srun python inference_scripts/measure_bert.py --model distilbert
 elif [ "$MODEL" = "sbert" ]; then
     echo "Running Sentence-BERT model inference..."
-    srun python inference_scripts/measure_bert.py --model sbert
+    srun python inference_scripts/measure_sbert.py
 else
     echo "Running BERT model inference..."
     srun python inference_scripts/measure_bert.py --model bert

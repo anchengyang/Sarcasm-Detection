@@ -308,16 +308,7 @@ def measure_inference_performance(model_path, test_data_path, test_labels_path, 
     return results_df
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Run inference with specified model.")
-    parser.add_argument(
-        "--model",
-        type=str,
-        required=True,
-        help="Name of the model to use. Example: 'bert'"
-    )
-    args = parser.parse_args()
-
-    model = args.model
+    model = "sbert"
     BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
     # Construct absolute paths
