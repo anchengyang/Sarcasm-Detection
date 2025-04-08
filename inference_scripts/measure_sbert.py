@@ -78,10 +78,6 @@ class TextDataset(Dataset):
             'targets': torch.tensor(target, dtype=torch.long)
         }
 
-def format_time(elapsed):
-    elapsed_rounded = int(round((elapsed)))
-    return str(datetime.timedelta(seconds=elapsed_rounded))
-
 def get_model_size(model_path):
     """Calculate the model size in MB"""
     total_size = 0
@@ -153,7 +149,7 @@ def measure_inference_performance(model_path, test_data_path, test_labels_path, 
     
     # Load model
     model = SBERTClassifier()
-    # model = AutoModelForSequenceClassification.from_pretrained(model_path)
+    model.load_state_dict(torch.load(os.path.join(model_path, "model_state_dict.pt"), map_location=device))
     model.to(device)
     model.eval()
     
