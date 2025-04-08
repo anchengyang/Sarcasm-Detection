@@ -48,7 +48,7 @@ class SBERTClassifier(nn.Module):
         })
 
 class TextDataset(Dataset):
-    def __init__(self, texts, targets, max_length=180, tokenizer_name='bert-base-uncased'):
+    def __init__(self, texts, targets, max_length=180, tokenizer_name='sentence-transformers/all-MiniLM-L6-v2'):
         self.texts = texts
         self.targets = targets
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
@@ -73,12 +73,14 @@ class TextDataset(Dataset):
         attention_mask = encoding['attention_mask'].flatten()
         
         return {
-            'input_ids': torch.as_tensor(input_ids, dtype=torch.long),
-            'attention_mask': torch.as_tensor(attention_mask, dtype=torch.long),
-            'targets': torch.as_tensor(target, dtype=torch.long),
-            'text': text
+            'input_ids': input_ids,
+            'attention_mask': attention_mask,
+            'targets': torch.tensor(target, dtype=torch.long)
         }
 
+def format_time(elapsed):
+    elapsed_rounded = int(round((elapsed)))
+    return str(datetime.timedelta(seconds=elapsed_rounded))
 
 def get_model_size(model_path):
     """Calculate the model size in MB"""
