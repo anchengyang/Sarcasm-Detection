@@ -1,0 +1,533 @@
+>>> Activating virtualenv...
+>>> Python used: /home/j/jiaxi/CS4248_project_folder/Sarcasm-Detection-main/cuml-test-env/bin/python
+>>> Pip used: /home/j/jiaxi/CS4248_project_folder/Sarcasm-Detection-main/cuml-test-env/bin/pip
+Requirement already satisfied: pip in ./cuml-test-env/lib/python3.10/site-packages (25.0.1)
+Requirement already satisfied: setuptools in ./cuml-test-env/lib/python3.10/site-packages (78.1.0)
+Requirement already satisfied: wheel in ./cuml-test-env/lib/python3.10/site-packages (0.45.1)
+Found existing installation: dask-cuda 25.4.0
+Uninstalling dask-cuda-25.4.0:
+  Successfully uninstalled dask-cuda-25.4.0
+Looking in indexes: https://pypi.org/simple, https://pypi.nvidia.com
+Requirement already satisfied: cudf-cu12==25.4.0 in ./cuml-test-env/lib/python3.10/site-packages (25.4.0)
+Requirement already satisfied: cuml-cu12==25.4.0 in ./cuml-test-env/lib/python3.10/site-packages (25.4.0)
+Requirement already satisfied: rmm-cu12==25.4.0 in ./cuml-test-env/lib/python3.10/site-packages (25.4.0)
+Requirement already satisfied: dask-cudf-cu12==25.4.0 in ./cuml-test-env/lib/python3.10/site-packages (25.4.0)
+Requirement already satisfied: cupy-cuda12x in ./cuml-test-env/lib/python3.10/site-packages (13.4.1)
+Requirement already satisfied: cachetools in ./cuml-test-env/lib/python3.10/site-packages (from cudf-cu12==25.4.0) (5.5.2)
+Requirement already satisfied: cuda-python<13.0a0,>=12.6.2 in ./cuml-test-env/lib/python3.10/site-packages (from cudf-cu12==25.4.0) (12.8.0)
+Requirement already satisfied: fsspec>=0.6.0 in ./cuml-test-env/lib/python3.10/site-packages (from cudf-cu12==25.4.0) (2025.3.2)
+Requirement already satisfied: libcudf-cu12==25.4.* in ./cuml-test-env/lib/python3.10/site-packages (from cudf-cu12==25.4.0) (25.4.0)
+Requirement already satisfied: numba-cuda<0.5.0a0,>=0.4.0 in ./cuml-test-env/lib/python3.10/site-packages (from cudf-cu12==25.4.0) (0.4.0)
+Requirement already satisfied: numba<0.62.0a0,>=0.59.1 in ./cuml-test-env/lib/python3.10/site-packages (from cudf-cu12==25.4.0) (0.60.0)
+Requirement already satisfied: numpy<3.0a0,>=1.23 in ./cuml-test-env/lib/python3.10/site-packages (from cudf-cu12==25.4.0) (1.24.4)
+Requirement already satisfied: nvtx>=0.2.1 in ./cuml-test-env/lib/python3.10/site-packages (from cudf-cu12==25.4.0) (0.2.11)
+Requirement already satisfied: packaging in ./cuml-test-env/lib/python3.10/site-packages (from cudf-cu12==25.4.0) (24.2)
+Requirement already satisfied: pandas<2.2.4dev0,>=2.0 in ./cuml-test-env/lib/python3.10/site-packages (from cudf-cu12==25.4.0) (2.2.3)
+Requirement already satisfied: pyarrow<20.0.0a0,>=14.0.0 in ./cuml-test-env/lib/python3.10/site-packages (from cudf-cu12==25.4.0) (19.0.1)
+Requirement already satisfied: pylibcudf-cu12==25.4.* in ./cuml-test-env/lib/python3.10/site-packages (from cudf-cu12==25.4.0) (25.4.0)
+Requirement already satisfied: pynvjitlink-cu12 in ./cuml-test-env/lib/python3.10/site-packages (from cudf-cu12==25.4.0) (0.5.2)
+Requirement already satisfied: rich in ./cuml-test-env/lib/python3.10/site-packages (from cudf-cu12==25.4.0) (14.0.0)
+Requirement already satisfied: typing_extensions>=4.0.0 in ./cuml-test-env/lib/python3.10/site-packages (from cudf-cu12==25.4.0) (4.13.2)
+Requirement already satisfied: cuvs-cu12==25.4.* in ./cuml-test-env/lib/python3.10/site-packages (from cuml-cu12==25.4.0) (25.4.0)
+Collecting dask-cuda==25.4.* (from cuml-cu12==25.4.0)
+  Downloading https://pypi.nvidia.com/dask-cuda/dask_cuda-25.4.0-py3-none-any.whl (135 kB)
+Requirement already satisfied: joblib>=0.11 in ./cuml-test-env/lib/python3.10/site-packages (from cuml-cu12==25.4.0) (1.4.2)
+Requirement already satisfied: libcuml-cu12==25.4.* in ./cuml-test-env/lib/python3.10/site-packages (from cuml-cu12==25.4.0) (25.4.0)
+Requirement already satisfied: nvidia-cublas-cu12 in ./cuml-test-env/lib/python3.10/site-packages (from cuml-cu12==25.4.0) (12.4.5.8)
+Requirement already satisfied: nvidia-cufft-cu12 in ./cuml-test-env/lib/python3.10/site-packages (from cuml-cu12==25.4.0) (11.2.1.3)
+Requirement already satisfied: nvidia-curand-cu12 in ./cuml-test-env/lib/python3.10/site-packages (from cuml-cu12==25.4.0) (10.3.5.147)
+Requirement already satisfied: nvidia-cusolver-cu12 in ./cuml-test-env/lib/python3.10/site-packages (from cuml-cu12==25.4.0) (11.6.1.9)
+Requirement already satisfied: nvidia-cusparse-cu12 in ./cuml-test-env/lib/python3.10/site-packages (from cuml-cu12==25.4.0) (12.3.1.170)
+Requirement already satisfied: pylibraft-cu12==25.4.* in ./cuml-test-env/lib/python3.10/site-packages (from cuml-cu12==25.4.0) (25.4.0)
+Requirement already satisfied: raft-dask-cu12==25.4.* in ./cuml-test-env/lib/python3.10/site-packages (from cuml-cu12==25.4.0) (25.4.0)
+Requirement already satisfied: rapids-dask-dependency==25.4.* in ./cuml-test-env/lib/python3.10/site-packages (from cuml-cu12==25.4.0) (25.4.0)
+Requirement already satisfied: scipy>=1.8.0 in ./cuml-test-env/lib/python3.10/site-packages (from cuml-cu12==25.4.0) (1.15.2)
+Requirement already satisfied: treelite==4.4.1 in ./cuml-test-env/lib/python3.10/site-packages (from cuml-cu12==25.4.0) (4.4.1)
+Requirement already satisfied: librmm-cu12==25.4.* in ./cuml-test-env/lib/python3.10/site-packages (from rmm-cu12==25.4.0) (25.4.0)
+Requirement already satisfied: pynvml<13.0.0a0,>=12.0.0 in ./cuml-test-env/lib/python3.10/site-packages (from dask-cudf-cu12==25.4.0) (12.0.0)
+Requirement already satisfied: libcuvs-cu12==25.4.* in ./cuml-test-env/lib/python3.10/site-packages (from cuvs-cu12==25.4.*->cuml-cu12==25.4.0) (25.4.0)
+Requirement already satisfied: click>=8.1 in ./cuml-test-env/lib/python3.10/site-packages (from dask-cuda==25.4.*->cuml-cu12==25.4.0) (8.1.8)
+Requirement already satisfied: zict>=2.0.0 in ./cuml-test-env/lib/python3.10/site-packages (from dask-cuda==25.4.*->cuml-cu12==25.4.0) (3.0.0)
+Requirement already satisfied: libkvikio-cu12==25.4.* in ./cuml-test-env/lib/python3.10/site-packages (from libcudf-cu12==25.4.*->cudf-cu12==25.4.0) (25.4.0)
+Requirement already satisfied: nvidia-nvcomp-cu12==4.2.0.11 in ./cuml-test-env/lib/python3.10/site-packages (from libcudf-cu12==25.4.*->cudf-cu12==25.4.0) (4.2.0.11)
+Requirement already satisfied: rapids-logger==0.1.* in ./cuml-test-env/lib/python3.10/site-packages (from libcudf-cu12==25.4.*->cudf-cu12==25.4.0) (0.1.1)
+Requirement already satisfied: libraft-cu12==25.4.* in ./cuml-test-env/lib/python3.10/site-packages (from libcuml-cu12==25.4.*->cuml-cu12==25.4.0) (25.4.0)
+Requirement already satisfied: distributed-ucxx-cu12==0.43.* in ./cuml-test-env/lib/python3.10/site-packages (from raft-dask-cu12==25.4.*->cuml-cu12==25.4.0) (0.43.0)
+Requirement already satisfied: ucx-py-cu12==0.43.* in ./cuml-test-env/lib/python3.10/site-packages (from raft-dask-cu12==25.4.*->cuml-cu12==25.4.0) (0.43.0)
+Requirement already satisfied: dask==2025.2.0 in ./cuml-test-env/lib/python3.10/site-packages (from rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (2025.2.0)
+Requirement already satisfied: distributed==2025.2.0 in ./cuml-test-env/lib/python3.10/site-packages (from rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (2025.2.0)
+Requirement already satisfied: cloudpickle>=3.0.0 in ./cuml-test-env/lib/python3.10/site-packages (from dask==2025.2.0->rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (3.1.1)
+Requirement already satisfied: partd>=1.4.0 in ./cuml-test-env/lib/python3.10/site-packages (from dask==2025.2.0->rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (1.4.2)
+Requirement already satisfied: pyyaml>=5.3.1 in ./cuml-test-env/lib/python3.10/site-packages (from dask==2025.2.0->rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (6.0.2)
+Requirement already satisfied: toolz>=0.10.0 in ./cuml-test-env/lib/python3.10/site-packages (from dask==2025.2.0->rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (1.0.0)
+Requirement already satisfied: importlib_metadata>=4.13.0 in ./cuml-test-env/lib/python3.10/site-packages (from dask==2025.2.0->rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (8.6.1)
+Requirement already satisfied: jinja2>=2.10.3 in ./cuml-test-env/lib/python3.10/site-packages (from distributed==2025.2.0->rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (3.1.6)
+Requirement already satisfied: locket>=1.0.0 in ./cuml-test-env/lib/python3.10/site-packages (from distributed==2025.2.0->rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (1.0.0)
+Requirement already satisfied: msgpack>=1.0.2 in ./cuml-test-env/lib/python3.10/site-packages (from distributed==2025.2.0->rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (1.1.0)
+Requirement already satisfied: psutil>=5.8.0 in ./cuml-test-env/lib/python3.10/site-packages (from distributed==2025.2.0->rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (7.0.0)
+Requirement already satisfied: sortedcontainers>=2.0.5 in ./cuml-test-env/lib/python3.10/site-packages (from distributed==2025.2.0->rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (2.4.0)
+Requirement already satisfied: tblib>=1.6.0 in ./cuml-test-env/lib/python3.10/site-packages (from distributed==2025.2.0->rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (3.1.0)
+Requirement already satisfied: tornado>=6.2.0 in ./cuml-test-env/lib/python3.10/site-packages (from distributed==2025.2.0->rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (6.4.2)
+Requirement already satisfied: urllib3>=1.26.5 in ./cuml-test-env/lib/python3.10/site-packages (from distributed==2025.2.0->rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (2.4.0)
+Requirement already satisfied: ucxx-cu12==0.43.* in ./cuml-test-env/lib/python3.10/site-packages (from distributed-ucxx-cu12==0.43.*->raft-dask-cu12==25.4.*->cuml-cu12==25.4.0) (0.43.0)
+Requirement already satisfied: libucx-cu12<1.19,>=1.15.0 in ./cuml-test-env/lib/python3.10/site-packages (from ucx-py-cu12==0.43.*->raft-dask-cu12==25.4.*->cuml-cu12==25.4.0) (1.18.0)
+Requirement already satisfied: libucxx-cu12==0.43.* in ./cuml-test-env/lib/python3.10/site-packages (from ucxx-cu12==0.43.*->distributed-ucxx-cu12==0.43.*->raft-dask-cu12==25.4.*->cuml-cu12==25.4.0) (0.43.0)
+Requirement already satisfied: fastrlock>=0.5 in ./cuml-test-env/lib/python3.10/site-packages (from cupy-cuda12x) (0.8.3)
+Requirement already satisfied: cuda-bindings~=12.8.0 in ./cuml-test-env/lib/python3.10/site-packages (from cuda-python<13.0a0,>=12.6.2->cudf-cu12==25.4.0) (12.8.0)
+Requirement already satisfied: llvmlite<0.44,>=0.43.0dev0 in ./cuml-test-env/lib/python3.10/site-packages (from numba<0.62.0a0,>=0.59.1->cudf-cu12==25.4.0) (0.43.0)
+Requirement already satisfied: python-dateutil>=2.8.2 in ./cuml-test-env/lib/python3.10/site-packages (from pandas<2.2.4dev0,>=2.0->cudf-cu12==25.4.0) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in ./cuml-test-env/lib/python3.10/site-packages (from pandas<2.2.4dev0,>=2.0->cudf-cu12==25.4.0) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in ./cuml-test-env/lib/python3.10/site-packages (from pandas<2.2.4dev0,>=2.0->cudf-cu12==25.4.0) (2025.2)
+Requirement already satisfied: nvidia-ml-py<13.0.0a0,>=12.0.0 in ./cuml-test-env/lib/python3.10/site-packages (from pynvml<13.0.0a0,>=12.0.0->dask-cudf-cu12==25.4.0) (12.570.86)
+Requirement already satisfied: nvidia-nvjitlink-cu12 in ./cuml-test-env/lib/python3.10/site-packages (from nvidia-cusolver-cu12->cuml-cu12==25.4.0) (12.4.127)
+Requirement already satisfied: markdown-it-py>=2.2.0 in ./cuml-test-env/lib/python3.10/site-packages (from rich->cudf-cu12==25.4.0) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in ./cuml-test-env/lib/python3.10/site-packages (from rich->cudf-cu12==25.4.0) (2.19.1)
+Requirement already satisfied: mdurl~=0.1 in ./cuml-test-env/lib/python3.10/site-packages (from markdown-it-py>=2.2.0->rich->cudf-cu12==25.4.0) (0.1.2)
+Requirement already satisfied: six>=1.5 in ./cuml-test-env/lib/python3.10/site-packages (from python-dateutil>=2.8.2->pandas<2.2.4dev0,>=2.0->cudf-cu12==25.4.0) (1.17.0)
+Requirement already satisfied: zipp>=3.20 in ./cuml-test-env/lib/python3.10/site-packages (from importlib_metadata>=4.13.0->dask==2025.2.0->rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (3.21.0)
+Requirement already satisfied: MarkupSafe>=2.0 in ./cuml-test-env/lib/python3.10/site-packages (from jinja2>=2.10.3->distributed==2025.2.0->rapids-dask-dependency==25.4.*->cuml-cu12==25.4.0) (3.0.2)
+Installing collected packages: dask-cuda
+Successfully installed dask-cuda-25.4.0
+Requirement already satisfied: numexpr in ./cuml-test-env/lib/python3.10/site-packages (2.10.2)
+Requirement already satisfied: bottleneck in ./cuml-test-env/lib/python3.10/site-packages (1.4.2)
+Requirement already satisfied: numpy<1.25 in ./cuml-test-env/lib/python3.10/site-packages (1.24.4)
+Requirement already satisfied: scipy in ./cuml-test-env/lib/python3.10/site-packages (1.15.2)
+cuML is working
+job is running on xgph0, started at Wed Apr 16 07:18:17 PM +08 2025
+Running inference with model: sbert
+\n--- Installing packages ---\n
+Requirement already satisfied: torch in ./cuml-test-env/lib/python3.10/site-packages (2.6.0)
+Requirement already satisfied: pandas in ./cuml-test-env/lib/python3.10/site-packages (2.2.3)
+Requirement already satisfied: transformers in ./cuml-test-env/lib/python3.10/site-packages (4.51.2)
+Requirement already satisfied: scikit-learn in ./cuml-test-env/lib/python3.10/site-packages (1.6.1)
+Requirement already satisfied: joblib in ./cuml-test-env/lib/python3.10/site-packages (1.4.2)
+Requirement already satisfied: lightgbm in ./cuml-test-env/lib/python3.10/site-packages (4.6.0)
+Requirement already satisfied: optuna in ./cuml-test-env/lib/python3.10/site-packages (4.2.1)
+Requirement already satisfied: xgboost in ./cuml-test-env/lib/python3.10/site-packages (3.0.0)
+Requirement already satisfied: torch-tb-profiler in ./cuml-test-env/lib/python3.10/site-packages (0.4.3)
+Requirement already satisfied: tensorboard in ./cuml-test-env/lib/python3.10/site-packages (2.19.0)
+Requirement already satisfied: filelock in ./cuml-test-env/lib/python3.10/site-packages (from torch) (3.18.0)
+Requirement already satisfied: typing-extensions>=4.10.0 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (4.13.2)
+Requirement already satisfied: networkx in ./cuml-test-env/lib/python3.10/site-packages (from torch) (3.4.2)
+Requirement already satisfied: jinja2 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (3.1.6)
+Requirement already satisfied: fsspec in ./cuml-test-env/lib/python3.10/site-packages (from torch) (2025.3.2)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (12.4.127)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (12.4.127)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (12.4.127)
+Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (9.1.0.70)
+Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (12.4.5.8)
+Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (11.2.1.3)
+Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (10.3.5.147)
+Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (11.6.1.9)
+Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (12.3.1.170)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (0.6.2)
+Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (2.21.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (12.4.127)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (12.4.127)
+Requirement already satisfied: triton==3.2.0 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (3.2.0)
+Requirement already satisfied: sympy==1.13.1 in ./cuml-test-env/lib/python3.10/site-packages (from torch) (1.13.1)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./cuml-test-env/lib/python3.10/site-packages (from sympy==1.13.1->torch) (1.3.0)
+Requirement already satisfied: numpy>=1.22.4 in ./cuml-test-env/lib/python3.10/site-packages (from pandas) (1.24.4)
+Requirement already satisfied: python-dateutil>=2.8.2 in ./cuml-test-env/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in ./cuml-test-env/lib/python3.10/site-packages (from pandas) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in ./cuml-test-env/lib/python3.10/site-packages (from pandas) (2025.2)
+Requirement already satisfied: huggingface-hub<1.0,>=0.30.0 in ./cuml-test-env/lib/python3.10/site-packages (from transformers) (0.30.2)
+Requirement already satisfied: packaging>=20.0 in ./cuml-test-env/lib/python3.10/site-packages (from transformers) (24.2)
+Requirement already satisfied: pyyaml>=5.1 in ./cuml-test-env/lib/python3.10/site-packages (from transformers) (6.0.2)
+Requirement already satisfied: regex!=2019.12.17 in ./cuml-test-env/lib/python3.10/site-packages (from transformers) (2024.11.6)
+Requirement already satisfied: requests in ./cuml-test-env/lib/python3.10/site-packages (from transformers) (2.32.3)
+Requirement already satisfied: tokenizers<0.22,>=0.21 in ./cuml-test-env/lib/python3.10/site-packages (from transformers) (0.21.1)
+Requirement already satisfied: safetensors>=0.4.3 in ./cuml-test-env/lib/python3.10/site-packages (from transformers) (0.5.3)
+Requirement already satisfied: tqdm>=4.27 in ./cuml-test-env/lib/python3.10/site-packages (from transformers) (4.67.1)
+Requirement already satisfied: scipy>=1.6.0 in ./cuml-test-env/lib/python3.10/site-packages (from scikit-learn) (1.15.2)
+Requirement already satisfied: threadpoolctl>=3.1.0 in ./cuml-test-env/lib/python3.10/site-packages (from scikit-learn) (3.6.0)
+Requirement already satisfied: alembic>=1.5.0 in ./cuml-test-env/lib/python3.10/site-packages (from optuna) (1.15.2)
+Requirement already satisfied: colorlog in ./cuml-test-env/lib/python3.10/site-packages (from optuna) (6.9.0)
+Requirement already satisfied: sqlalchemy>=1.4.2 in ./cuml-test-env/lib/python3.10/site-packages (from optuna) (2.0.40)
+Requirement already satisfied: absl-py>=0.4 in ./cuml-test-env/lib/python3.10/site-packages (from tensorboard) (2.2.2)
+Requirement already satisfied: grpcio>=1.48.2 in ./cuml-test-env/lib/python3.10/site-packages (from tensorboard) (1.71.0)
+Requirement already satisfied: markdown>=2.6.8 in ./cuml-test-env/lib/python3.10/site-packages (from tensorboard) (3.8)
+Requirement already satisfied: protobuf!=4.24.0,>=3.19.6 in ./cuml-test-env/lib/python3.10/site-packages (from tensorboard) (6.30.2)
+Requirement already satisfied: setuptools>=41.0.0 in ./cuml-test-env/lib/python3.10/site-packages (from tensorboard) (78.1.0)
+Requirement already satisfied: six>1.9 in ./cuml-test-env/lib/python3.10/site-packages (from tensorboard) (1.17.0)
+Requirement already satisfied: tensorboard-data-server<0.8.0,>=0.7.0 in ./cuml-test-env/lib/python3.10/site-packages (from tensorboard) (0.7.2)
+Requirement already satisfied: werkzeug>=1.0.1 in ./cuml-test-env/lib/python3.10/site-packages (from tensorboard) (3.1.3)
+Requirement already satisfied: Mako in ./cuml-test-env/lib/python3.10/site-packages (from alembic>=1.5.0->optuna) (1.3.10)
+Requirement already satisfied: greenlet>=1 in ./cuml-test-env/lib/python3.10/site-packages (from sqlalchemy>=1.4.2->optuna) (3.1.1)
+Requirement already satisfied: MarkupSafe>=2.1.1 in ./cuml-test-env/lib/python3.10/site-packages (from werkzeug>=1.0.1->tensorboard) (3.0.2)
+Requirement already satisfied: charset-normalizer<4,>=2 in ./cuml-test-env/lib/python3.10/site-packages (from requests->transformers) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in ./cuml-test-env/lib/python3.10/site-packages (from requests->transformers) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./cuml-test-env/lib/python3.10/site-packages (from requests->transformers) (2.4.0)
+Requirement already satisfied: certifi>=2017.4.17 in ./cuml-test-env/lib/python3.10/site-packages (from requests->transformers) (2025.1.31)
+\n--- Finished installing packages, starting model inference ---\n
+Running Sentence-BERT model inference...
+Using device: cuda
+Model size: 87.59 MB
+
+--- Testing with batch size: 32 ---
+Initial GPU memory: 86.66 MB
+Warming up...
+GPU memory after warmup: 94.87 MB
+
+Profiler Stats Summary:
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  Total MFLOPs  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                       batch_processing         0.44%      25.402ms        53.38%        3.077s      11.482ms       0.000us         0.00%        2.597s       9.691ms          56 b           0 b     154.50 Kb     -23.60 Mb           268            --  
+enumerate(DataLoader)#_SingleProcessDataLoaderIter._...        42.01%        2.422s        46.62%        2.688s       9.992ms       0.000us         0.00%       0.000us       0.000us      23.55 Mb     -35.29 Mb    -117.00 Kb    -117.00 Kb           269            --  
+                                        model_inference        14.14%     815.046ms        41.20%        2.375s       8.863ms       0.000us         0.00%        2.593s       9.674ms           0 b           8 b     134.00 Kb    -255.42 Gb           268            --  
+                                           aten::linear         2.10%     121.105ms        12.60%     726.325ms      71.320us       0.000us         0.00%        2.026s     198.979us           0 b           0 b     119.30 Gb           0 b         10184            --  
+                                            aten::copy_         0.78%      45.241ms        11.33%     652.912ms     162.416us      27.319ms         1.05%      27.319ms       6.796us           0 b           0 b           0 b           0 b          4020            --  
+                                               aten::to         0.23%      13.375ms        11.28%     650.391ms      17.506us       0.000us         0.00%      10.711ms       0.288us      66.80 Kb           0 b       3.52 Gb           0 b         37152            --  
+                                         aten::_to_copy         0.25%      14.270ms        11.05%     637.016ms     339.561us       0.000us         0.00%      10.711ms       5.710us      66.80 Kb           0 b       3.52 Gb           0 b          1876            --  
+                                        post_processing         0.50%      28.991ms        10.96%     631.726ms       2.357ms       0.000us         0.00%       1.866ms       6.963us          56 b     -66.75 Kb           0 b    -134.00 Kb           268            --  
+                                        cudaMemcpyAsync        10.10%     582.372ms        10.10%     582.372ms     362.172us       0.000us         0.00%       0.000us       0.000us           0 b           0 b           0 b           0 b          1608            --  
+                                            aten::addmm         5.64%     325.087ms         8.45%     487.010ms      47.821us        2.026s        78.03%        2.026s     198.979us           0 b           0 b     119.30 Gb     109.36 Gb         10184  32684965.882  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 5.765s
+Self CUDA time total: 2.596s
+
+GPU peak memory: 192.25 MB
+GPU memory used: 105.60 MB
+Memory summary:
+|===========================================================================|
+|                  PyTorch CUDA memory summary, device ID 0                 |
+|---------------------------------------------------------------------------|
+|            CUDA OOMs: 0            |        cudaMalloc retries: 0         |
+|===========================================================================|
+|        Metric         | Cur Usage  | Peak Usage | Tot Alloc  | Tot Freed  |
+|---------------------------------------------------------------------------|
+| Allocated memory      |  97145 KiB | 196868 KiB | 279634 MiB | 279539 MiB |
+|       from large pool |  81751 KiB | 181353 KiB | 268772 MiB | 268692 MiB |
+|       from small pool |  15394 KiB |  18311 KiB |  10862 MiB |  10847 MiB |
+|---------------------------------------------------------------------------|
+| Active memory         |  97145 KiB | 196868 KiB | 279634 MiB | 279539 MiB |
+|       from large pool |  81751 KiB | 181353 KiB | 268772 MiB | 268692 MiB |
+|       from small pool |  15394 KiB |  18311 KiB |  10862 MiB |  10847 MiB |
+|---------------------------------------------------------------------------|
+| Requested memory      |  97144 KiB | 196340 KiB | 278687 MiB | 278592 MiB |
+|       from large pool |  81751 KiB | 180841 KiB | 267825 MiB | 267745 MiB |
+|       from small pool |  15393 KiB |  18301 KiB |  10861 MiB |  10846 MiB |
+|---------------------------------------------------------------------------|
+| GPU reserved memory   | 276480 KiB | 276480 KiB | 423936 KiB | 147456 KiB |
+|       from large pool | 253952 KiB | 253952 KiB | 399360 KiB | 145408 KiB |
+|       from small pool |  22528 KiB |  22528 KiB |  24576 KiB |   2048 KiB |
+|---------------------------------------------------------------------------|
+| Non-releasable memory |  29830 KiB |  75546 KiB | 203699 MiB | 203670 MiB |
+|       from large pool |  26793 KiB |  72599 KiB | 192823 MiB | 192797 MiB |
+|       from small pool |   3037 KiB |   5304 KiB |  10875 MiB |  10872 MiB |
+|---------------------------------------------------------------------------|
+| Allocations           |     111    |     185    |   45134    |   45023    |
+|       from large pool |      14    |      22    |   23421    |   23407    |
+|       from small pool |      97    |     167    |   21713    |   21616    |
+|---------------------------------------------------------------------------|
+| Active allocs         |     111    |     185    |   45134    |   45023    |
+|       from large pool |      14    |      22    |   23421    |   23407    |
+|       from small pool |      97    |     167    |   21713    |   21616    |
+|---------------------------------------------------------------------------|
+| GPU reserved segments |      20    |      20    |      26    |       6    |
+|       from large pool |       9    |       9    |      14    |       5    |
+|       from small pool |      11    |      11    |      12    |       1    |
+|---------------------------------------------------------------------------|
+| Non-releasable allocs |      13    |      24    |   29181    |   29168    |
+|       from large pool |       4    |       9    |   13712    |   13708    |
+|       from small pool |       9    |      16    |   15469    |   15460    |
+|---------------------------------------------------------------------------|
+| Oversize allocations  |       0    |       0    |       0    |       0    |
+|---------------------------------------------------------------------------|
+| Oversize GPU segments |       0    |       0    |       0    |       0    |
+|===========================================================================|
+
+CUDA Time (profiler): 10.81 ms
+CUDA Memory usage (profiler): 105.60 MB
+Total inference time: 23.8844 seconds
+Average latency per batch: 10.81 ms
+Average latency per sample: 0.34 ms
+Throughput: 358.02 samples/second
+CPU Memory usage (profiler): 0.00 MB
+Accuracy: 0.9145
+F1 Score: 0.9137
+Full profiler trace saved to: /home/j/jiaxi/CS4248_project_folder/Sarcasm-Detection-main/profiler_results/sbert/profile_batch_32/trace.json
+View with TensorBoard: tensorboard --logdir=/home/j/jiaxi/CS4248_project_folder/Sarcasm-Detection-main/profiler_results/sbert/profile_batch_32
+
+--- Testing with batch size: 64 ---
+Initial GPU memory: 94.87 MB
+Warming up...
+GPU memory after warmup: 94.96 MB
+
+Profiler Stats Summary:
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  Total MFLOPs  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                       batch_processing         0.21%      10.060ms        54.97%        2.622s      19.566ms       0.000us         0.00%        2.493s      18.607ms         312 b           0 b     177.50 Kb     -23.44 Mb           134            --  
+enumerate(DataLoader)#_SingleProcessDataLoaderIter._...        41.06%        1.958s        45.02%        2.147s      15.906ms       0.000us         0.00%       0.000us       0.000us      23.55 Mb     -35.29 Mb     -56.50 Kb     -56.50 Kb           135            --  
+                                               aten::to         0.15%       7.148ms        36.88%        1.759s      49.298us       0.000us         0.00%       7.819ms       0.219us      66.80 Kb           0 b       3.52 Gb           0 b         35678            --  
+                                            aten::copy_         0.33%      15.946ms        36.82%        1.756s     873.748us      20.018ms         0.80%      20.018ms       9.959us           0 b           0 b           0 b           0 b          2010            --  
+                                         aten::_to_copy         0.11%       5.231ms        36.73%        1.752s       1.867ms       0.000us         0.00%       7.819ms       8.336us      66.80 Kb           0 b       3.52 Gb           0 b           938            --  
+                                        post_processing         0.23%      10.980ms        36.50%        1.741s      12.991ms       0.000us         0.00%     911.587us       6.803us         312 b     -66.50 Kb           0 b     -67.00 Kb           134            --  
+                                        cudaMemcpyAsync        36.27%        1.730s        36.27%        1.730s       2.152ms       0.000us         0.00%       0.000us       0.000us           0 b           0 b           0 b           0 b           804            --  
+                                        model_inference         6.18%     294.664ms        17.85%     851.361ms       6.353ms       0.000us         0.00%        2.491s      18.588ms           0 b           0 b      67.00 Kb    -255.58 Gb           134            --  
+                                           aten::linear         0.94%      44.637ms         5.44%     259.306ms      50.924us       0.000us         0.00%        1.945s     381.902us           0 b           0 b     119.30 Gb           0 b          5092            --  
+                                            aten::addmm         2.35%     112.007ms         3.58%     170.527ms      33.489us        1.944s        77.98%        1.945s     381.902us           0 b           0 b     119.30 Gb     114.33 Gb          5092  32684965.882  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 4.769s
+Self CUDA time total: 2.494s
+
+GPU peak memory: 289.69 MB
+GPU memory used: 194.82 MB
+Memory summary:
+|===========================================================================|
+|                  PyTorch CUDA memory summary, device ID 0                 |
+|---------------------------------------------------------------------------|
+|            CUDA OOMs: 0            |        cudaMalloc retries: 0         |
+|===========================================================================|
+|        Metric         | Cur Usage  | Peak Usage | Tot Alloc  | Tot Freed  |
+|---------------------------------------------------------------------------|
+| Allocated memory      |  97235 KiB | 296640 KiB | 554821 MiB | 554726 MiB |
+|       from large pool |  81751 KiB | 280955 KiB | 538527 MiB | 538447 MiB |
+|       from small pool |  15484 KiB |  17094 KiB |  16294 MiB |  16279 MiB |
+|---------------------------------------------------------------------------|
+| Active memory         |  97235 KiB | 296640 KiB | 554821 MiB | 554726 MiB |
+|       from large pool |  81751 KiB | 280955 KiB | 538527 MiB | 538447 MiB |
+|       from small pool |  15484 KiB |  17094 KiB |  16294 MiB |  16279 MiB |
+|---------------------------------------------------------------------------|
+| Requested memory      |  97235 KiB | 295616 KiB | 553065 MiB | 552970 MiB |
+|       from large pool |  81751 KiB | 279931 KiB | 536771 MiB | 536691 MiB |
+|       from small pool |  15484 KiB |  17093 KiB |  16293 MiB |  16278 MiB |
+|---------------------------------------------------------------------------|
+| GPU reserved memory   | 448512 KiB | 448512 KiB |   1042 MiB | 618496 KiB |
+|       from large pool | 428032 KiB | 428032 KiB |   1014 MiB | 610304 KiB |
+|       from small pool |  20480 KiB |  20480 KiB |     28 MiB |   8192 KiB |
+|---------------------------------------------------------------------------|
+| Non-releasable memory |  29740 KiB | 103414 KiB | 270457 MiB | 270428 MiB |
+|       from large pool |  26793 KiB | 100587 KiB | 254149 MiB | 254122 MiB |
+|       from small pool |   2947 KiB |   3851 KiB |  16307 MiB |  16305 MiB |
+|---------------------------------------------------------------------------|
+| Allocations           |     111    |     165    |   67677    |   67566    |
+|       from large pool |      14    |      22    |   35301    |   35287    |
+|       from small pool |      97    |     147    |   32376    |   32279    |
+|---------------------------------------------------------------------------|
+| Active allocs         |     111    |     165    |   67677    |   67566    |
+|       from large pool |      14    |      22    |   35301    |   35287    |
+|       from small pool |      97    |     147    |   32376    |   32279    |
+|---------------------------------------------------------------------------|
+| GPU reserved segments |      23    |      23    |      46    |      23    |
+|       from large pool |      13    |      13    |      32    |      19    |
+|       from small pool |      10    |      10    |      14    |       4    |
+|---------------------------------------------------------------------------|
+| Non-releasable allocs |      14    |      25    |   45962    |   45948    |
+|       from large pool |       4    |      11    |   22884    |   22880    |
+|       from small pool |      10    |      14    |   23078    |   23068    |
+|---------------------------------------------------------------------------|
+| Oversize allocations  |       0    |       0    |       0    |       0    |
+|---------------------------------------------------------------------------|
+| Oversize GPU segments |       0    |       0    |       0    |       0    |
+|===========================================================================|
+
+CUDA Time (profiler): 19.10 ms
+CUDA Memory usage (profiler): 194.82 MB
+Total inference time: 20.1039 seconds
+Average latency per batch: 19.10 ms
+Average latency per sample: 0.30 ms
+Throughput: 425.34 samples/second
+CPU Memory usage (profiler): 0.00 MB
+Accuracy: 0.9145
+F1 Score: 0.9137
+Full profiler trace saved to: /home/j/jiaxi/CS4248_project_folder/Sarcasm-Detection-main/profiler_results/sbert/profile_batch_64/trace.json
+View with TensorBoard: tensorboard --logdir=/home/j/jiaxi/CS4248_project_folder/Sarcasm-Detection-main/profiler_results/sbert/profile_batch_64
+
+--- Testing with batch size: 128 ---
+Initial GPU memory: 94.96 MB
+Warming up...
+GPU memory after warmup: 95.13 MB
+
+Profiler Stats Summary:
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  Total MFLOPs  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                       batch_processing         0.13%       6.042ms        52.81%        2.417s      36.075ms       0.000us         0.00%        2.350s      35.077ms         824 b           0 b     358.00 Kb     -23.27 Mb            67            --  
+enumerate(DataLoader)#_SingleProcessDataLoaderIter._...        43.07%        1.971s        47.18%        2.159s      31.753ms       0.000us         0.00%       0.000us       0.000us      23.55 Mb     -35.29 Mb     -54.00 Kb     -54.00 Kb            68            --  
+                                               aten::to         0.12%       5.494ms        42.85%        1.961s      56.119us       0.000us         0.00%       6.738ms       0.193us      66.80 Kb           0 b       3.53 Gb           0 b         34941            --  
+                                            aten::copy_         0.16%       7.485ms        42.77%        1.957s       1.947ms      18.062ms         0.77%      18.062ms      17.972us           0 b           0 b           0 b           0 b          1005            --  
+                                         aten::_to_copy         0.07%       3.345ms        42.73%        1.955s       4.169ms       0.000us         0.00%       6.738ms      14.367us      66.80 Kb           0 b       3.53 Gb           0 b           469            --  
+                                        post_processing         0.15%       6.643ms        42.61%        1.950s      29.105ms       0.000us         0.00%     472.354us       7.050us         824 b     -66.00 Kb           0 b     -67.00 Kb            67            --  
+                                        cudaMemcpyAsync        42.48%        1.944s        42.48%        1.944s       4.836ms       0.000us         0.00%       0.000us       0.000us           0 b           0 b           0 b           0 b           402            --  
+                                        model_inference         3.40%     155.822ms         9.82%     449.546ms       6.710ms       0.000us         0.00%        2.348s      35.051ms           0 b           0 b      67.00 Kb    -256.43 Gb            67            --  
+                                           aten::linear         0.51%      23.471ms         2.86%     131.110ms      51.496us       0.000us         0.00%        1.814s     712.677us           0 b           0 b     119.78 Gb           0 b          2546            --  
+                                            aten::addmm         1.25%      57.171ms         1.85%      84.450ms      33.170us        1.814s        77.22%        1.814s     712.677us           0 b           0 b     119.78 Gb     117.30 Gb          2546  32684965.882  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 4.577s
+Self CUDA time total: 2.350s
+
+GPU peak memory: 485.32 MB
+GPU memory used: 390.36 MB
+Memory summary:
+|===========================================================================|
+|                  PyTorch CUDA memory summary, device ID 0                 |
+|---------------------------------------------------------------------------|
+|            CUDA OOMs: 0            |        cudaMalloc retries: 0         |
+|===========================================================================|
+|        Metric         | Cur Usage  | Peak Usage | Tot Alloc  | Tot Freed  |
+|---------------------------------------------------------------------------|
+| Allocated memory      |  97416 KiB | 496968 KiB |    810 GiB |    810 GiB |
+|       from large pool |  81751 KiB | 480927 KiB |    792 GiB |    792 GiB |
+|       from small pool |  15665 KiB |  17834 KiB |     18 GiB |     18 GiB |
+|---------------------------------------------------------------------------|
+| Active memory         |  97416 KiB | 496968 KiB |    810 GiB |    810 GiB |
+|       from large pool |  81751 KiB | 480927 KiB |    792 GiB |    792 GiB |
+|       from small pool |  15665 KiB |  17834 KiB |     18 GiB |     18 GiB |
+|---------------------------------------------------------------------------|
+| Requested memory      |  97415 KiB | 494151 KiB |    807 GiB |    807 GiB |
+|       from large pool |  81751 KiB | 478111 KiB |    788 GiB |    788 GiB |
+|       from small pool |  15664 KiB |  17833 KiB |     18 GiB |     18 GiB |
+|---------------------------------------------------------------------------|
+| GPU reserved memory   | 755712 KiB | 755712 KiB |   2270 MiB |   1532 MiB |
+|       from large pool | 735232 KiB | 735232 KiB |   2238 MiB |   1520 MiB |
+|       from small pool |  20480 KiB |  20480 KiB |     32 MiB |     12 MiB |
+|---------------------------------------------------------------------------|
+| Non-releasable memory |  29560 KiB | 197521 KiB | 326243 MiB | 326214 MiB |
+|       from large pool |  26793 KiB | 195057 KiB | 307065 MiB | 307039 MiB |
+|       from small pool |   2767 KiB |   3488 KiB |  19178 MiB |  19175 MiB |
+|---------------------------------------------------------------------------|
+| Allocations           |     111    |     139    |   79031    |   78920    |
+|       from large pool |      14    |      22    |   41285    |   41271    |
+|       from small pool |      97    |     121    |   37746    |   37649    |
+|---------------------------------------------------------------------------|
+| Active allocs         |     111    |     139    |   79031    |   78920    |
+|       from large pool |      14    |      22    |   41285    |   41271    |
+|       from small pool |      97    |     121    |   37746    |   37649    |
+|---------------------------------------------------------------------------|
+| GPU reserved segments |      23    |      23    |      66    |      43    |
+|       from large pool |      13    |      13    |      50    |      37    |
+|       from small pool |      10    |      10    |      16    |       6    |
+|---------------------------------------------------------------------------|
+| Non-releasable allocs |      13    |      22    |   49395    |   49382    |
+|       from large pool |       4    |      11    |   23568    |   23564    |
+|       from small pool |       9    |      12    |   25827    |   25818    |
+|---------------------------------------------------------------------------|
+| Oversize allocations  |       0    |       0    |       0    |       0    |
+|---------------------------------------------------------------------------|
+| Oversize GPU segments |       0    |       0    |       0    |       0    |
+|===========================================================================|
+
+CUDA Time (profiler): 35.51 ms
+CUDA Memory usage (profiler): 390.36 MB
+Total inference time: 15.7520 seconds
+Average latency per batch: 35.51 ms
+Average latency per sample: 0.28 ms
+Throughput: 542.85 samples/second
+CPU Memory usage (profiler): 0.00 MB
+Accuracy: 0.9145
+F1 Score: 0.9137
+Full profiler trace saved to: /home/j/jiaxi/CS4248_project_folder/Sarcasm-Detection-main/profiler_results/sbert/profile_batch_128/trace.json
+View with TensorBoard: tensorboard --logdir=/home/j/jiaxi/CS4248_project_folder/Sarcasm-Detection-main/profiler_results/sbert/profile_batch_128
+
+--- Testing with batch size: 256 ---
+Initial GPU memory: 95.13 MB
+Warming up...
+GPU memory after warmup: 95.49 MB
+
+Profiler Stats Summary:
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  Total MFLOPs  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                       batch_processing         0.06%       2.916ms        50.60%        2.367s      69.606ms       0.000us         0.00%        2.327s      68.454ms         824 b           0 b     358.00 Kb     -23.27 Mb            34            --  
+enumerate(DataLoader)#_SingleProcessDataLoaderIter._...        45.20%        2.114s        49.39%        2.310s      66.001ms       0.000us         0.00%       0.000us       0.000us      23.55 Mb     -35.28 Mb     -48.00 Kb     -48.00 Kb            35            --  
+                                               aten::to         0.11%       5.070ms        45.38%        2.122s      61.383us       0.000us         0.00%       6.738ms       0.195us      66.80 Kb           0 b       3.53 Gb           0 b         34578            --  
+                                            aten::copy_         0.08%       3.905ms        45.29%        2.118s       4.153ms      18.498ms         0.79%      18.498ms      36.271us           0 b           0 b           0 b           0 b           510            --  
+                                         aten::_to_copy         0.03%       1.438ms        45.28%        2.117s       8.897ms       0.000us         0.00%       6.738ms      28.310us      66.80 Kb           0 b       3.53 Gb           0 b           238            --  
+                                        cudaMemcpyAsync        45.13%        2.111s        45.13%        2.111s      10.347ms       0.000us         0.00%       0.000us       0.000us           0 b           0 b           0 b           0 b           204            --  
+                                        post_processing         0.08%       3.531ms        45.01%        2.105s      61.917ms       0.000us         0.00%     257.795us       7.582us         824 b     -66.00 Kb           0 b     -67.00 Kb            34            --  
+                                        model_inference         1.76%      82.328ms         5.19%     242.760ms       7.140ms       0.000us         0.00%        2.326s      68.412ms           0 b           0 b      67.00 Kb    -255.73 Gb            34            --  
+                                           aten::linear         0.25%      11.540ms         1.40%      65.322ms      50.559us       0.000us         0.00%        1.797s       1.391ms           0 b           0 b     119.39 Gb           0 b          1292            --  
+                                            aten::empty         1.29%      60.475ms         1.30%      60.770ms       1.599us       0.000us         0.00%       0.000us       0.000us      35.29 Mb      35.29 Mb      50.83 Gb      50.83 Gb         38013            --  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 4.677s
+Self CUDA time total: 2.327s
+
+GPU peak memory: 871.85 MB
+GPU memory used: 776.72 MB
+Memory summary:
+|===========================================================================|
+|                  PyTorch CUDA memory summary, device ID 0                 |
+|---------------------------------------------------------------------------|
+|            CUDA OOMs: 0            |        cudaMalloc retries: 0         |
+|===========================================================================|
+|        Metric         | Cur Usage  | Peak Usage | Tot Alloc  | Tot Freed  |
+|---------------------------------------------------------------------------|
+| Allocated memory      |  97777 KiB |    871 MiB |   1082 GiB |   1081 GiB |
+|       from large pool |  81751 KiB |    855 MiB |   1061 GiB |   1061 GiB |
+|       from small pool |  16026 KiB |     18 MiB |     20 GiB |     20 GiB |
+|---------------------------------------------------------------------------|
+| Active memory         |  97777 KiB |    871 MiB |   1082 GiB |   1081 GiB |
+|       from large pool |  81751 KiB |    855 MiB |   1061 GiB |   1061 GiB |
+|       from small pool |  16026 KiB |     18 MiB |     20 GiB |     20 GiB |
+|---------------------------------------------------------------------------|
+| Requested memory      |  97776 KiB |    870 MiB |   1077 GiB |   1077 GiB |
+|       from large pool |  81751 KiB |    853 MiB |   1057 GiB |   1057 GiB |
+|       from small pool |  16025 KiB |     18 MiB |     20 GiB |     20 GiB |
+|---------------------------------------------------------------------------|
+| GPU reserved memory   |   1346 MiB |   1346 MiB |   4714 MiB |   3368 MiB |
+|       from large pool |   1324 MiB |   1324 MiB |   4674 MiB |   3350 MiB |
+|       from small pool |     22 MiB |     22 MiB |     40 MiB |     18 MiB |
+|---------------------------------------------------------------------------|
+| Non-releasable memory |  29199 KiB | 389990 KiB | 383644 MiB | 383615 MiB |
+|       from large pool |  26793 KiB | 387893 KiB | 362809 MiB | 362783 MiB |
+|       from small pool |   2406 KiB |   5392 KiB |  20835 MiB |  20832 MiB |
+|---------------------------------------------------------------------------|
+| Allocations           |     111    |     133    |   84874    |   84763    |
+|       from large pool |      14    |      22    |   44365    |   44351    |
+|       from small pool |      97    |     115    |   40509    |   40412    |
+|---------------------------------------------------------------------------|
+| Active allocs         |     111    |     133    |   84874    |   84763    |
+|       from large pool |      14    |      22    |   44365    |   44351    |
+|       from small pool |      97    |     115    |   40509    |   40412    |
+|---------------------------------------------------------------------------|
+| GPU reserved segments |      24    |      24    |      88    |      64    |
+|       from large pool |      13    |      13    |      68    |      55    |
+|       from small pool |      11    |      11    |      20    |       9    |
+|---------------------------------------------------------------------------|
+| Non-releasable allocs |      12    |      22    |   50905    |   50893    |
+|       from large pool |       4    |      13    |   23944    |   23940    |
+|       from small pool |       8    |      14    |   26961    |   26953    |
+|---------------------------------------------------------------------------|
+| Oversize allocations  |       0    |       0    |       0    |       0    |
+|---------------------------------------------------------------------------|
+| Oversize GPU segments |       0    |       0    |       0    |       0    |
+|===========================================================================|
+
+CUDA Time (profiler): 68.72 ms
+CUDA Memory usage (profiler): 776.72 MB
+Total inference time: 16.7337 seconds
+Average latency per batch: 68.72 ms
+Average latency per sample: 0.27 ms
+Throughput: 511.00 samples/second
+CPU Memory usage (profiler): 0.00 MB
+Accuracy: 0.9145
+F1 Score: 0.9137
+Full profiler trace saved to: /home/j/jiaxi/CS4248_project_folder/Sarcasm-Detection-main/profiler_results/sbert/profile_batch_256/trace.json
+View with TensorBoard: tensorboard --logdir=/home/j/jiaxi/CS4248_project_folder/Sarcasm-Detection-main/profiler_results/sbert/profile_batch_256
+
+Results saved to /home/j/jiaxi/CS4248_project_folder/Sarcasm-Detection-main/profiler_results/sbert/profiler_inference_metrics.csv
+
+=== SUMMARY ===
+Model size: 87.59 MB
+
+Best throughput configuration:
+  Batch size: 128.0
+  Throughput: 542.85 samples/second
+  Latency per sample: 0.28 ms
+  CPU Memory usage: 0.00 MB
+  GPU Memory usage: 390.36 MB
+
+Best latency configuration:
+  Batch size: 256.0
+  Latency per sample: 0.27 ms
+  Throughput: 511.00 samples/second
+  CPU Memory usage: 0.00 MB
+  GPU Memory usage: 776.72 MB
+
+Job completed at Wed Apr 16 07:22:57 PM +08 2025
+
+total execution time: 278 seconds
+
