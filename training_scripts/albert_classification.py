@@ -2,14 +2,17 @@ import torch
 import pandas as pd
 from torch.utils.data import DataLoader
 import os
-
-from torch.utils.data import Dataset
-from transformers import AutoTokenizer
-from torch import cuda
-from transformers import AlbertForSequenceClassification, AdamW
 import time
 import datetime
 import numpy as np
+import json
+import psutil
+import gc
+from torch.utils.data import Dataset
+from transformers import AutoTokenizer
+from torch import cuda
+from transformers import AlbertForSequenceClassification
+from torch.optim import AdamW
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 torch.cuda.empty_cache()
 device = 'cuda' if cuda.is_available() else 'cpu'
@@ -214,4 +217,114 @@ model.save_pretrained(output_dir)
 tokenizer = AutoTokenizer.from_pretrained('albert-base-v2')
 tokenizer.save_pretrained(output_dir)
 
-print(f"Model and tokenizer saved to {output_dir}") 
+print(f"Model and tokenizer saved to {output_dir}")
+
+# After model is saved
+# Add deployability metrics measurement
+print("\n--- Measuring Deployability Metrics ---\n")
+
+def measure_deployability_metrics(model, test_dataset, batch_size=32):
+    """
+    Measure and return deployability metrics for the model
+    """
+    metrics = {}
+    
+    # 1. Model Size
+    model_size_params = sum(p.numel() for p in model.parameters())
+    metrics["model_size_parameters"] = model_size_params
+    
+    # Get model size on disk (in MB)
+    model_size_mb = sum(os.path.getsize(os.path.join(output_dir, f)) 
+                      for f in os.listdir(output_dir) 
+                      if os.path.isfile(os.path.join(output_dir, f))) / (1024 * 1024)
+    metrics["model_size_mb"] = round(model_size_mb, 2)
+    
+    # Create a small single-item loader for latency test
+    single_item_dataset = torch.utils.data.Subset(test_dataset, [0])  # Just the first item
+    single_loader = DataLoader(single_item_dataset, batch_size=1, shuffle=False)
+    
+    # Batch loader for throughput test
+    batch_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+    
+    # 2. Inference Latency (single item)
+    model.eval()
+    # Warm up
+    for _ in range(5):
+        with torch.no_grad():
+            for data in single_loader:
+                ids = data["input_ids"].to(device)
+                mask = data["attention_mask"].to(device)
+                _ = model(ids, attention_mask=mask)
+    
+    # Measure latency
+    latencies = []
+    for _ in range(20):  # Average over 20 runs
+        start_time = time.time()
+        with torch.no_grad():
+            for data in single_loader:
+                ids = data["input_ids"].to(device)
+                mask = data["attention_mask"].to(device)
+                _ = model(ids, attention_mask=mask)
+        latencies.append((time.time() - start_time) * 1000)  # Convert to ms
+    
+    metrics["inference_latency_ms"] = round(np.mean(latencies), 2)
+    metrics["inference_latency_std_ms"] = round(np.std(latencies), 2)
+    
+    # 3. Throughput (batch processing)
+    # Warm up
+    with torch.no_grad():
+        for data in batch_loader:
+            ids = data["input_ids"].to(device)
+            mask = data["attention_mask"].to(device)
+            _ = model(ids, attention_mask=mask)
+    
+    # Measure throughput
+    start_time = time.time()
+    with torch.no_grad():
+        for data in batch_loader:
+            ids = data["input_ids"].to(device)
+            mask = data["attention_mask"].to(device)
+            _ = model(ids, attention_mask=mask)
+    
+    total_time = time.time() - start_time
+    total_samples = len(test_dataset)
+    metrics["throughput_samples_per_second"] = round(total_samples / total_time, 2)
+    
+    # 4. Memory Usage
+    # Force garbage collection before measuring memory
+    gc.collect()
+    torch.cuda.empty_cache()
+    
+    # Measure baseline memory
+    baseline_mem = psutil.Process(os.getpid()).memory_info().rss / (1024 * 1024)
+    
+    # Memory usage during inference
+    with torch.no_grad():
+        for data in batch_loader:
+            ids = data["input_ids"].to(device)
+            mask = data["attention_mask"].to(device)
+            _ = model(ids, attention_mask=mask)
+            break  # One batch is enough for memory measurement
+    
+    peak_mem = psutil.Process(os.getpid()).memory_info().rss / (1024 * 1024)
+    metrics["memory_usage_mb"] = round(peak_mem - baseline_mem, 2)
+    
+    return metrics
+
+# Run metrics measurement
+metrics = measure_deployability_metrics(model, test_dataset)
+
+# Print metrics
+print("\nDeployability Metrics:")
+print(f"Model Size: {metrics['model_size_parameters']:,} parameters ({metrics['model_size_mb']} MB)")
+print(f"Inference Latency: {metrics['inference_latency_ms']} ms (± {metrics['inference_latency_std_ms']} ms)")
+print(f"Throughput: {metrics['throughput_samples_per_second']} samples/second")
+print(f"Memory Usage: {metrics['memory_usage_mb']} MB")
+
+# Save metrics to file
+os.makedirs('../results', exist_ok=True)
+metrics_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../results/albert_deployability_metrics.json')
+with open(os.path.abspath(metrics_path), 'w') as f:
+    json.dump(metrics, f, indent=4)
+
+print(f"\nMetrics saved to {metrics_path}") 
